@@ -30,7 +30,7 @@
      </font>
     </property>
     <property name="text">
-     <string>username:</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;username:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
@@ -48,89 +48,76 @@
      </font>
     </property>
     <property name="text">
-     <string>password:</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;password:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="usernameInput">
     <property name="geometry">
      <rect>
-      <x>300</x>
+      <x>320</x>
       <y>150</y>
-      <width>231</width>
-      <height>41</height>
+      <width>230</width>
+      <height>35</height>
      </rect>
     </property>
    </widget>
    <widget class="QLineEdit" name="passwordInput">
     <property name="geometry">
      <rect>
-      <x>300</x>
+      <x>320</x>
       <y>200</y>
-      <width>231</width>
-      <height>41</height>
+      <width>230</width>
+      <height>35</height>
      </rect>
     </property>
    </widget>
    <widget class="QPushButton" name="loginPushButton">
     <property name="geometry">
      <rect>
-      <x>400</x>
+      <x>200</x>
       <y>250</y>
-      <width>130</width>
+      <width>350</width>
       <height>35</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>16</pointsize>
+      <pointsize>12</pointsize>
      </font>
     </property>
     <property name="text">
      <string>login</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_3">
-    <property name="geometry">
-     <rect>
-      <x>210</x>
-      <y>306</y>
-      <width>181</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>you do not have an account?</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="registerPushButton">
     <property name="geometry">
      <rect>
-      <x>400</x>
-      <y>300</y>
-      <width>130</width>
+      <x>200</x>
+      <y>295</y>
+      <width>350</width>
       <height>35</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>16</pointsize>
+      <pointsize>12</pointsize>
      </font>
     </property>
     <property name="text">
-     <string>register</string>
+     <string>I do not have an account</string>
     </property>
    </widget>
    <widget class="QLabel" name="errorMessage">
     <property name="geometry">
      <rect>
-      <x>210</x>
-      <y>260</y>
-      <width>181</width>
+      <x>200</x>
+      <y>335</y>
+      <width>351</width>
       <height>20</height>
      </rect>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#a83f1b;&quot;&gt;wrong username or password&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; color:#a83f1b;&quot;&gt;wrong username or password&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
   </widget>
@@ -140,7 +127,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>36</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>

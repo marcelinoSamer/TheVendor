@@ -1,10 +1,11 @@
 #ifndef USERS_H
 #define USERS_H
 #include <QString>
+#include <QFile>
+using namespace std;
 
-extern QString usernames[100];
-extern QString passwords[100];
-extern int userCount;
+extern QFile customers;
+extern QFile admins;
 
 
 #endif // USERS_H

@@ -9,4 +9,8 @@
         <file>assets/half.png</file>
         <file>assets/unfilled.png</file>
     </qresource>
+    <qresource prefix="/DataBase">
+        <file>assets/DataBase/Users/Customers.txt</file>
+        <file>assets/DataBase/Users/Admin.txt</file>
+    </qresource>
 </RCC>

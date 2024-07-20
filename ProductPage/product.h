@@ -1,22 +1,42 @@
 #ifndef PRODUCT_H
 #define PRODUCT_H
 
-#include <QGroupBox>
+#include <QWidget>
+#include <QLabel>
+#include <QTextEdit>
+#include <QVBoxLayout>
+#include <QHBoxLayout>
+#include <QPushButton>
+#include <QPixmap>
+#include <QString>
 
-namespace Ui {
-class Product;
-}
+class Product : public QWidget {
 
-class Product : public QGroupBox
-{
-    Q_OBJECT
 
 public:
     explicit Product(QWidget *parent = nullptr);
     ~Product();
 
+    void setProductImage(const QPixmap &image);
+    void setPrice(const QString &price);
+    void setTitle(const QString &title);
+    void setDescription(const QString &description);
+
+private slots:
+    void onAddToCartButtonClicked();
+    void onBuyButtonClicked();
+
 private:
-    Ui::Product *ui;
+    Q_OBJECT
+    QLabel *imageLabel;
+    QLabel *priceLabel;
+    QLabel *titleLabel;
+    QTextEdit *descriptionText;
+    QPushButton *addToCartButton;
+    QPushButton *buyButton;
+    QVBoxLayout *mainLayout;
+    QHBoxLayout *topLayout;
+    QVBoxLayout *buttonLayout;
 };
 
 #endif // PRODUCT_H

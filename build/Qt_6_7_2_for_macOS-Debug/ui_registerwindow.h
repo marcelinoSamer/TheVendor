@@ -26,38 +26,38 @@ QT_BEGIN_NAMESPACE
 class Ui_registerWindow
 {
 public:
-    QLineEdit *lineEdit;
-    QLineEdit *lineEdit_2;
+    QLineEdit *usernameInput;
+    QLineEdit *PasswordInput;
     QLabel *label;
     QLabel *label_2;
     QLabel *label_3;
     QGroupBox *groupBox;
-    QRadioButton *radioButton;
-    QRadioButton *radioButton_2;
+    QRadioButton *CustomerRadioButton;
+    QRadioButton *adminRadioButton;
     QWidget *gridLayoutWidget;
     QGridLayout *gridLayout;
     QLabel *label_4;
-    QLineEdit *lineEdit_4;
+    QLineEdit *yearOfBirthInput;
     QLabel *label_6;
     QComboBox *comboBox;
-    QLineEdit *lineEdit_3;
+    QLineEdit *dayOfBirthInput;
     QLabel *label_5;
-    QPushButton *pushButton;
-    QLabel *label_7;
-    QLabel *label_8;
-    QLabel *label_9;
+    QPushButton *registerPushButton;
+    QLabel *allFieldsMustBeCompletedError;
+    QLabel *ageError;
+    QLabel *nameAlreadyExistsError;
 
     void setupUi(QDialog *registerWindow)
     {
         if (registerWindow->objectName().isEmpty())
             registerWindow->setObjectName("registerWindow");
-        registerWindow->resize(790, 640);
-        lineEdit = new QLineEdit(registerWindow);
-        lineEdit->setObjectName("lineEdit");
-        lineEdit->setGeometry(QRect(290, 140, 250, 40));
-        lineEdit_2 = new QLineEdit(registerWindow);
-        lineEdit_2->setObjectName("lineEdit_2");
-        lineEdit_2->setGeometry(QRect(290, 200, 250, 40));
+        registerWindow->resize(746, 640);
+        usernameInput = new QLineEdit(registerWindow);
+        usernameInput->setObjectName("usernameInput");
+        usernameInput->setGeometry(QRect(290, 140, 250, 40));
+        PasswordInput = new QLineEdit(registerWindow);
+        PasswordInput->setObjectName("PasswordInput");
+        PasswordInput->setGeometry(QRect(290, 200, 250, 40));
         label = new QLabel(registerWindow);
         label->setObjectName("label");
         label->setGeometry(QRect(150, 140, 100, 30));
@@ -76,12 +76,12 @@ public:
         groupBox->setObjectName("groupBox");
         groupBox->setGeometry(QRect(150, 350, 390, 81));
         groupBox->setFont(font);
-        radioButton = new QRadioButton(groupBox);
-        radioButton->setObjectName("radioButton");
-        radioButton->setGeometry(QRect(30, 40, 99, 20));
-        radioButton_2 = new QRadioButton(groupBox);
-        radioButton_2->setObjectName("radioButton_2");
-        radioButton_2->setGeometry(QRect(250, 40, 99, 20));
+        CustomerRadioButton = new QRadioButton(groupBox);
+        CustomerRadioButton->setObjectName("CustomerRadioButton");
+        CustomerRadioButton->setGeometry(QRect(30, 40, 99, 20));
+        adminRadioButton = new QRadioButton(groupBox);
+        adminRadioButton->setObjectName("adminRadioButton");
+        adminRadioButton->setGeometry(QRect(250, 40, 99, 20));
         gridLayoutWidget = new QWidget(registerWindow);
         gridLayoutWidget->setObjectName("gridLayoutWidget");
         gridLayoutWidget->setGeometry(QRect(290, 250, 251, 83));
@@ -93,10 +93,10 @@ public:
 
         gridLayout->addWidget(label_4, 0, 0, 1, 1);
 
-        lineEdit_4 = new QLineEdit(gridLayoutWidget);
-        lineEdit_4->setObjectName("lineEdit_4");
+        yearOfBirthInput = new QLineEdit(gridLayoutWidget);
+        yearOfBirthInput->setObjectName("yearOfBirthInput");
 
-        gridLayout->addWidget(lineEdit_4, 1, 2, 1, 1);
+        gridLayout->addWidget(yearOfBirthInput, 1, 2, 1, 1);
 
         label_6 = new QLabel(gridLayoutWidget);
         label_6->setObjectName("label_6");
@@ -120,31 +120,31 @@ public:
 
         gridLayout->addWidget(comboBox, 1, 0, 1, 1);
 
-        lineEdit_3 = new QLineEdit(gridLayoutWidget);
-        lineEdit_3->setObjectName("lineEdit_3");
+        dayOfBirthInput = new QLineEdit(gridLayoutWidget);
+        dayOfBirthInput->setObjectName("dayOfBirthInput");
 
-        gridLayout->addWidget(lineEdit_3, 1, 1, 1, 1);
+        gridLayout->addWidget(dayOfBirthInput, 1, 1, 1, 1);
 
         label_5 = new QLabel(gridLayoutWidget);
         label_5->setObjectName("label_5");
 
         gridLayout->addWidget(label_5, 0, 1, 1, 1);
 
-        pushButton = new QPushButton(registerWindow);
-        pushButton->setObjectName("pushButton");
-        pushButton->setGeometry(QRect(150, 440, 390, 40));
-        label_7 = new QLabel(registerWindow);
-        label_7->setObjectName("label_7");
-        label_7->setGeometry(QRect(235, 490, 220, 20));
+        registerPushButton = new QPushButton(registerWindow);
+        registerPushButton->setObjectName("registerPushButton");
+        registerPushButton->setGeometry(QRect(150, 440, 390, 40));
+        allFieldsMustBeCompletedError = new QLabel(registerWindow);
+        allFieldsMustBeCompletedError->setObjectName("allFieldsMustBeCompletedError");
+        allFieldsMustBeCompletedError->setGeometry(QRect(235, 490, 220, 20));
         QFont font1;
         font1.setPointSize(14);
-        label_7->setFont(font1);
-        label_8 = new QLabel(registerWindow);
-        label_8->setObjectName("label_8");
-        label_8->setGeometry(QRect(560, 280, 141, 16));
-        label_9 = new QLabel(registerWindow);
-        label_9->setObjectName("label_9");
-        label_9->setGeometry(QRect(560, 150, 151, 16));
+        allFieldsMustBeCompletedError->setFont(font1);
+        ageError = new QLabel(registerWindow);
+        ageError->setObjectName("ageError");
+        ageError->setGeometry(QRect(560, 280, 141, 16));
+        nameAlreadyExistsError = new QLabel(registerWindow);
+        nameAlreadyExistsError->setObjectName("nameAlreadyExistsError");
+        nameAlreadyExistsError->setGeometry(QRect(560, 150, 151, 16));
 
         retranslateUi(registerWindow);
 
@@ -158,8 +158,8 @@ public:
         label_2->setText(QCoreApplication::translate("registerWindow", "password:", nullptr));
         label_3->setText(QCoreApplication::translate("registerWindow", "date of birth:", nullptr));
         groupBox->setTitle(QCoreApplication::translate("registerWindow", "user type", nullptr));
-        radioButton->setText(QCoreApplication::translate("registerWindow", "Customer", nullptr));
-        radioButton_2->setText(QCoreApplication::translate("registerWindow", "Admin", nullptr));
+        CustomerRadioButton->setText(QCoreApplication::translate("registerWindow", "Customer", nullptr));
+        adminRadioButton->setText(QCoreApplication::translate("registerWindow", "Admin", nullptr));
         label_4->setText(QCoreApplication::translate("registerWindow", "Month:", nullptr));
         label_6->setText(QCoreApplication::translate("registerWindow", "Year", nullptr));
         comboBox->setItemText(0, QCoreApplication::translate("registerWindow", "Jan.", nullptr));
@@ -176,10 +176,10 @@ public:
         comboBox->setItemText(11, QCoreApplication::translate("registerWindow", "Dec.", nullptr));
 
         label_5->setText(QCoreApplication::translate("registerWindow", "Day:", nullptr));
-        pushButton->setText(QCoreApplication::translate("registerWindow", "register", nullptr));
-        label_7->setText(QCoreApplication::translate("registerWindow", "<html><head/><body><p><span style=\" color:#b7331f;\">error: all fields must be completed</span></p></body></html>", nullptr));
-        label_8->setText(QCoreApplication::translate("registerWindow", "<html><head/><body><p><span style=\" color:#bb351f;\">error: you are under 12</span></p></body></html>", nullptr));
-        label_9->setText(QCoreApplication::translate("registerWindow", "<html><head/><body><p><span style=\" color:#ba341f;\">username already exists </span></p></body></html>", nullptr));
+        registerPushButton->setText(QCoreApplication::translate("registerWindow", "register", nullptr));
+        allFieldsMustBeCompletedError->setText(QCoreApplication::translate("registerWindow", "<html><head/><body><p><span style=\" color:#b7331f;\">error: all fields must be completed</span></p></body></html>", nullptr));
+        ageError->setText(QCoreApplication::translate("registerWindow", "<html><head/><body><p><span style=\" color:#bb351f;\">error: you are under 12</span></p></body></html>", nullptr));
+        nameAlreadyExistsError->setText(QCoreApplication::translate("registerWindow", "<html><head/><body><p><span style=\" color:#ba341f;\">username already exists </span></p></body></html>", nullptr));
     } // retranslateUi
 
 };

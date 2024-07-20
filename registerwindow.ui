@@ -6,14 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>790</width>
+    <width>746</width>
     <height>640</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QLineEdit" name="usernameInput">
    <property name="geometry">
     <rect>
      <x>290</x>
@@ -23,7 +23,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_2">
+  <widget class="QLineEdit" name="PasswordInput">
    <property name="geometry">
     <rect>
      <x>290</x>
@@ -104,7 +104,7 @@
    <property name="title">
     <string>user type</string>
    </property>
-   <widget class="QRadioButton" name="radioButton">
+   <widget class="QRadioButton" name="CustomerRadioButton">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -117,7 +117,7 @@
      <string>Customer</string>
     </property>
    </widget>
-   <widget class="QRadioButton" name="radioButton_2">
+   <widget class="QRadioButton" name="adminRadioButton">
     <property name="geometry">
      <rect>
       <x>250</x>
@@ -149,7 +149,7 @@
      </widget>
     </item>
     <item row="1" column="2">
-     <widget class="QLineEdit" name="lineEdit_4"/>
+     <widget class="QLineEdit" name="yearOfBirthInput"/>
     </item>
     <item row="0" column="2">
      <widget class="QLabel" name="label_6">
@@ -223,7 +223,7 @@
      </widget>
     </item>
     <item row="1" column="1">
-     <widget class="QLineEdit" name="lineEdit_3"/>
+     <widget class="QLineEdit" name="dayOfBirthInput"/>
     </item>
     <item row="0" column="1">
      <widget class="QLabel" name="label_5">
@@ -234,7 +234,7 @@
     </item>
    </layout>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="registerPushButton">
    <property name="geometry">
     <rect>
      <x>150</x>
@@ -247,7 +247,7 @@
     <string>register</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_7">
+  <widget class="QLabel" name="allFieldsMustBeCompletedError">
    <property name="geometry">
     <rect>
      <x>235</x>
@@ -265,7 +265,7 @@
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#b7331f;&quot;&gt;error: all fields must be completed&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_8">
+  <widget class="QLabel" name="ageError">
    <property name="geometry">
     <rect>
      <x>560</x>
@@ -278,7 +278,7 @@
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#bb351f;&quot;&gt;error: you are under 12&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_9">
+  <widget class="QLabel" name="nameAlreadyExistsError">
    <property name="geometry">
     <rect>
      <x>560</x>

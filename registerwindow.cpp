@@ -23,4 +23,3 @@ void registerWindow::on_registerPushButton_clicked()
     adminSetUpWindow *a = new adminSetUpWindow();
     a->show();
 }
-

@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "users.h"
+#include "ProductPage/ProductPage.h"
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -8,6 +9,8 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ProductPage *p = new ProductPage;
+    p->show();
 }
 
 MainWindow::~MainWindow()
@@ -19,4 +22,3 @@ void MainWindow::on_loginPushButton_clicked()
 {
 
 }
-

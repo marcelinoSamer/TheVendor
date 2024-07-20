@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -51,3 +51,8 @@ DISTFILES += \
     assets/half.png \
     assets/unfilled.png \
     assets/vacuum.jpg
+
+RESOURCES += \
+    sources.qrc
+
+

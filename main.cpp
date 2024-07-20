@@ -1,5 +1,4 @@
 #include "loginwindow.h"
-#include "ProductPage/ProductPage.h"
 #include <QApplication>
 
 int main(int argc, char *argv[])

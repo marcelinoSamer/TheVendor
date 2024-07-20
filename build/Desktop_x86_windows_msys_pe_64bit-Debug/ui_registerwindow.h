@@ -47,9 +47,9 @@ public:
     QLineEdit *lineEdit_3;
     QLabel *label_5;
     QPushButton *pushButton;
-    QLabel *label_7;
-    QLabel *label_8;
-    QLabel *label_9;
+    QLabel *allFieldsMustBeCompletedError;
+    QLabel *ageError;
+    QLabel *nameAlreadyExistsError;
 
     void setupUi(QDialog *registerWindow)
     {
@@ -152,18 +152,18 @@ public:
         pushButton = new QPushButton(registerWindow);
         pushButton->setObjectName("pushButton");
         pushButton->setGeometry(QRect(180, 410, 390, 40));
-        label_7 = new QLabel(registerWindow);
-        label_7->setObjectName("label_7");
-        label_7->setGeometry(QRect(184, 460, 381, 31));
+        allFieldsMustBeCompletedError = new QLabel(registerWindow);
+        allFieldsMustBeCompletedError->setObjectName("allFieldsMustBeCompletedError");
+        allFieldsMustBeCompletedError->setGeometry(QRect(184, 460, 381, 31));
         QFont font1;
         font1.setPointSize(14);
-        label_7->setFont(font1);
-        label_8 = new QLabel(registerWindow);
-        label_8->setObjectName("label_8");
-        label_8->setGeometry(QRect(590, 250, 161, 31));
-        label_9 = new QLabel(registerWindow);
-        label_9->setObjectName("label_9");
-        label_9->setGeometry(QRect(590, 110, 151, 31));
+        allFieldsMustBeCompletedError->setFont(font1);
+        ageError = new QLabel(registerWindow);
+        ageError->setObjectName("ageError");
+        ageError->setGeometry(QRect(590, 250, 161, 31));
+        nameAlreadyExistsError = new QLabel(registerWindow);
+        nameAlreadyExistsError->setObjectName("nameAlreadyExistsError");
+        nameAlreadyExistsError->setGeometry(QRect(590, 110, 151, 31));
 
         retranslateUi(registerWindow);
 
@@ -197,9 +197,9 @@ public:
 
         label_5->setText(QCoreApplication::translate("registerWindow", "Day:", nullptr));
         pushButton->setText(QCoreApplication::translate("registerWindow", "register", nullptr));
-        label_7->setText(QCoreApplication::translate("registerWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:9pt; color:#b7331f;\">error: all fields must be completed</span></p></body></html>", nullptr));
-        label_8->setText(QCoreApplication::translate("registerWindow", "<html><head/><body><p><span style=\" color:#bb351f;\">error: you are under 12</span></p></body></html>", nullptr));
-        label_9->setText(QCoreApplication::translate("registerWindow", "<html><head/><body><p><span style=\" color:#ba341f;\">username already exists </span></p></body></html>", nullptr));
+        allFieldsMustBeCompletedError->setText(QCoreApplication::translate("registerWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:9pt; color:#b7331f;\">error: all fields must be completed</span></p></body></html>", nullptr));
+        ageError->setText(QCoreApplication::translate("registerWindow", "<html><head/><body><p><span style=\" color:#bb351f;\">error: you are under 12</span></p></body></html>", nullptr));
+        nameAlreadyExistsError->setText(QCoreApplication::translate("registerWindow", "<html><head/><body><p><span style=\" color:#ba341f;\">username already exists </span></p></body></html>", nullptr));
     } // retranslateUi
 
 };

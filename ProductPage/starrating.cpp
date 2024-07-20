@@ -38,9 +38,9 @@ void StarRating::paintEvent(QPaintEvent *event) {
     QPainter painter(this);
     painter.setRenderHint(QPainter::Antialiasing, true);
 
-    QPixmap filledStar("C:/Users/Test/Desktop/filled.png"); //pathhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-    QPixmap unfilledStar("C:/Users/Test/Desktop/unfilled.png"); //pathhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-    QPixmap half("C:/Users/Test/Desktop/half.png"); //pathhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+    QPixmap filledStar(":/stars/assets/filled.png");
+    QPixmap unfilledStar(":/stars/assets/unfilled.png");
+    QPixmap half(":/stars/assets/half.png");
 
     filledStar = filledStar.scaled(m_starSize, m_starSize, Qt::KeepAspectRatio, Qt::SmoothTransformation);
     unfilledStar = unfilledStar.scaled(m_starSize, m_starSize, Qt::KeepAspectRatio, Qt::SmoothTransformation);

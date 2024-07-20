@@ -254,7 +254,7 @@
     <string>register</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_7">
+  <widget class="QLabel" name="allFieldsMustBeCompletedError">
    <property name="geometry">
     <rect>
      <x>184</x>
@@ -272,7 +272,7 @@
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:9pt; color:#b7331f;&quot;&gt;error: all fields must be completed&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_8">
+  <widget class="QLabel" name="ageError">
    <property name="geometry">
     <rect>
      <x>590</x>
@@ -285,7 +285,7 @@
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#bb351f;&quot;&gt;error: you are under 12&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_9">
+  <widget class="QLabel" name="nameAlreadyExistsError">
    <property name="geometry">
     <rect>
      <x>590</x>

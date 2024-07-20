@@ -15,6 +15,9 @@ public:
     explicit registerWindow(QWidget *parent = nullptr);
     ~registerWindow();
 
+private slots:
+    void on_registerPushButton_clicked();
+
 private:
     Ui::registerWindow *ui;
 };

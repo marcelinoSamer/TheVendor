@@ -904,7 +904,9 @@ qrc_sources.cpp: ../../sources.qrc \
 		../../assets/unfilled.png \
 		../../assets/cat2.jpg \
 		../../assets/cat1.jpg \
-		../../assets/vacuum.jpg
+		../../assets/vacuum.jpg \
+		../../assets/DataBase/Users/Admin.txt \
+		../../assets/DataBase/Users/Customers.txt
 	/Users/mac/Qt/6.7.2/macos/libexec/rcc -name sources --no-zstd ../../sources.qrc -o qrc_sources.cpp
 
 compiler_moc_header_make_all: moc_ProductPage.cpp moc_cardview.cpp moc_product.cpp moc_starrating.cpp moc_adminsetupwindow.cpp moc_loginwindow.cpp moc_mainwindow.cpp moc_registerwindow.cpp
@@ -942,18 +944,21 @@ moc_cardview.cpp: ../../ProductPage/cardview.h \
 	/Users/mac/Qt/6.7.2/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=15 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/mac/Qt/6.7.2/macos/mkspecs/macx-clang -I/Users/mac/Desktop/TheVendor -I/Users/mac/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers -I/Users/mac/Qt/6.7.2/macos/lib/QtGui.framework/Headers -I/Users/mac/Qt/6.7.2/macos/lib/QtSql.framework/Headers -I/Users/mac/Qt/6.7.2/macos/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/mac/Qt/6.7.2/macos/lib ../../ProductPage/cardview.h -o moc_cardview.cpp
 
 moc_product.cpp: ../../ProductPage/product.h \
-		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/QObject \
-		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/qobject.h \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QWidget \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qwidget.h \
-		../../../../Qt/6.7.2/macos/lib/QtGui.framework/Headers/QImage \
-		../../../../Qt/6.7.2/macos/lib/QtGui.framework/Headers/qimage.h \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QLabel \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qlabel.h \
-		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QPushButton \
-		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qpushbutton.h \
+		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QTextEdit \
+		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qtextedit.h \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QVBoxLayout \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qboxlayout.h \
+		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QHBoxLayout \
+		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QPushButton \
+		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qpushbutton.h \
+		../../../../Qt/6.7.2/macos/lib/QtGui.framework/Headers/QPixmap \
+		../../../../Qt/6.7.2/macos/lib/QtGui.framework/Headers/qpixmap.h \
+		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/QString \
+		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/qstring.h \
 		../../../../Qt/6.7.2/macos/libexec/moc
 	/Users/mac/Qt/6.7.2/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=15 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/mac/Qt/6.7.2/macos/mkspecs/macx-clang -I/Users/mac/Desktop/TheVendor -I/Users/mac/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers -I/Users/mac/Qt/6.7.2/macos/lib/QtGui.framework/Headers -I/Users/mac/Qt/6.7.2/macos/lib/QtSql.framework/Headers -I/Users/mac/Qt/6.7.2/macos/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/mac/Qt/6.7.2/macos/lib ../../ProductPage/product.h -o moc_product.cpp
 
@@ -972,6 +977,13 @@ moc_adminsetupwindow.cpp: ../../adminsetupwindow.h \
 moc_loginwindow.cpp: ../../loginwindow.h \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QDialog \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qdialog.h \
+		../../users.h \
+		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/QString \
+		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/qstring.h \
+		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/QFile \
+		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/qfile.h \
+		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/QTextStream \
+		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/qtextstream.h \
 		../../../../Qt/6.7.2/macos/libexec/moc
 	/Users/mac/Qt/6.7.2/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=15 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/mac/Qt/6.7.2/macos/mkspecs/macx-clang -I/Users/mac/Desktop/TheVendor -I/Users/mac/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers -I/Users/mac/Qt/6.7.2/macos/lib/QtGui.framework/Headers -I/Users/mac/Qt/6.7.2/macos/lib/QtSql.framework/Headers -I/Users/mac/Qt/6.7.2/macos/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/mac/Qt/6.7.2/macos/lib ../../loginwindow.h -o moc_loginwindow.cpp
 
@@ -1070,19 +1082,22 @@ cardview.o: ../../ProductPage/cardview.cpp ../../ProductPage/cardview.h \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QHBoxLayout
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o cardview.o ../../ProductPage/cardview.cpp
 
-product.o: ../../ProductPage/product.cpp ../../ProductPage/Product.h \
-		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/QObject \
-		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/qobject.h \
+product.o: ../../ProductPage/product.cpp ../../ProductPage/product.h \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QWidget \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qwidget.h \
-		../../../../Qt/6.7.2/macos/lib/QtGui.framework/Headers/QImage \
-		../../../../Qt/6.7.2/macos/lib/QtGui.framework/Headers/qimage.h \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QLabel \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qlabel.h \
+		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QTextEdit \
+		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qtextedit.h \
+		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QVBoxLayout \
+		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qboxlayout.h \
+		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QHBoxLayout \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QPushButton \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qpushbutton.h \
-		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QVBoxLayout \
-		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qboxlayout.h
+		../../../../Qt/6.7.2/macos/lib/QtGui.framework/Headers/QPixmap \
+		../../../../Qt/6.7.2/macos/lib/QtGui.framework/Headers/qpixmap.h \
+		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/QString \
+		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/qstring.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o product.o ../../ProductPage/product.cpp
 
 starrating.o: ../../ProductPage/starrating.cpp ../../ProductPage/starrating.h \
@@ -1105,6 +1120,13 @@ adminsetupwindow.o: ../../adminsetupwindow.cpp ../../adminsetupwindow.h \
 loginwindow.o: ../../loginwindow.cpp ../../loginwindow.h \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QDialog \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qdialog.h \
+		../../users.h \
+		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/QString \
+		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/qstring.h \
+		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/QFile \
+		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/qfile.h \
+		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/QTextStream \
+		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/qtextstream.h \
 		ui_loginwindow.h \
 		../../registerwindow.h \
 		../../mainwindow.h \
@@ -1130,9 +1152,29 @@ loginwindow.o: ../../loginwindow.cpp ../../loginwindow.h \
 main.o: ../../main.cpp ../../loginwindow.h \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QDialog \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qdialog.h \
+		../../users.h \
+		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/QString \
+		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/qstring.h \
+		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/QFile \
+		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/qfile.h \
+		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/QTextStream \
+		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/qtextstream.h \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QApplication \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qapplication.h \
-		ui_product.h
+		../../ProductPage/product.h \
+		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QWidget \
+		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qwidget.h \
+		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QLabel \
+		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qlabel.h \
+		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QTextEdit \
+		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qtextedit.h \
+		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QVBoxLayout \
+		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qboxlayout.h \
+		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QHBoxLayout \
+		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QPushButton \
+		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qpushbutton.h \
+		../../../../Qt/6.7.2/macos/lib/QtGui.framework/Headers/QPixmap \
+		../../../../Qt/6.7.2/macos/lib/QtGui.framework/Headers/qpixmap.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../../main.cpp
 
 mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
@@ -1144,6 +1186,8 @@ mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
 		../../users.h \
 		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/QString \
 		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/qstring.h \
+		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/QFile \
+		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/qfile.h \
 		../../ProductPage/ProductPage.h \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QWidget \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qwidget.h \
@@ -1168,7 +1212,9 @@ registerwindow.o: ../../registerwindow.cpp ../../registerwindow.h \
 
 users.o: ../../users.cpp ../../users.h \
 		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/QString \
-		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/qstring.h
+		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/qstring.h \
+		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/QFile \
+		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/qfile.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o users.o ../../users.cpp
 
 qrc_sources.o: qrc_sources.cpp 

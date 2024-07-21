@@ -13,6 +13,7 @@ SOURCES += \
     ProductPage/cardview.cpp \
     ProductPage/product.cpp \
     ProductPage/starrating.cpp \
+    addproductpage.cpp \
     adminsetupwindow.cpp \
     loginwindow.cpp \
     main.cpp \
@@ -25,6 +26,7 @@ HEADERS += \
     ProductPage/cardview.h \
     ProductPage/product.h \
     ProductPage/starrating.h \
+    addproductpage.h \
     adminsetupwindow.h \
     loginwindow.h \
     mainwindow.h \
@@ -34,6 +36,7 @@ HEADERS += \
 FORMS += \
     ProductPage/ProductPage.ui \
     ProductPage/product.ui \
+    addproductpage.ui \
     adminsetupwindow.ui \
     loginwindow.ui \
     mainwindow.ui \

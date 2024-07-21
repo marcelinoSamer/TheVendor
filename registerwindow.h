@@ -16,7 +16,10 @@ public:
     ~registerWindow();
 
 private slots:
-    void on_registerPushButton_clicked();
+
+
+
+    void on_pushButton_clicked();
 
 private:
     Ui::registerWindow *ui;

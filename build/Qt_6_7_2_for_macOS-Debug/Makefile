@@ -56,6 +56,7 @@ SOURCES       = ../../ProductPage/ProductPage.cpp \
 		../../ProductPage/cardview.cpp \
 		../../ProductPage/product.cpp \
 		../../ProductPage/starrating.cpp \
+		../../addproductpage.cpp \
 		../../adminsetupwindow.cpp \
 		../../loginwindow.cpp \
 		../../main.cpp \
@@ -66,6 +67,7 @@ SOURCES       = ../../ProductPage/ProductPage.cpp \
 		moc_cardview.cpp \
 		moc_product.cpp \
 		moc_starrating.cpp \
+		moc_addproductpage.cpp \
 		moc_adminsetupwindow.cpp \
 		moc_loginwindow.cpp \
 		moc_mainwindow.cpp \
@@ -74,6 +76,7 @@ OBJECTS       = ProductPage.o \
 		cardview.o \
 		product.o \
 		starrating.o \
+		addproductpage.o \
 		adminsetupwindow.o \
 		loginwindow.o \
 		main.o \
@@ -85,6 +88,7 @@ OBJECTS       = ProductPage.o \
 		moc_cardview.o \
 		moc_product.o \
 		moc_starrating.o \
+		moc_addproductpage.o \
 		moc_adminsetupwindow.o \
 		moc_loginwindow.o \
 		moc_mainwindow.o \
@@ -329,6 +333,7 @@ DIST          = ../../assets/cat1.jpg \
 		../../ProductPage/cardview.h \
 		../../ProductPage/product.h \
 		../../ProductPage/starrating.h \
+		../../addproductpage.h \
 		../../adminsetupwindow.h \
 		../../loginwindow.h \
 		../../mainwindow.h \
@@ -337,6 +342,7 @@ DIST          = ../../assets/cat1.jpg \
 		../../ProductPage/cardview.cpp \
 		../../ProductPage/product.cpp \
 		../../ProductPage/starrating.cpp \
+		../../addproductpage.cpp \
 		../../adminsetupwindow.cpp \
 		../../loginwindow.cpp \
 		../../main.cpp \
@@ -363,7 +369,7 @@ include /Users/mac/Qt/6.7.2/macos/mkspecs/features/mac/sdk.mk
 first: all
 ####### Build rules
 
-TheVendor.app/Contents/MacOS/TheVendor: ui_ProductPage.h ui_product.h ui_adminsetupwindow.h ui_loginwindow.h ui_mainwindow.h ui_registerwindow.h $(OBJECTS)  
+TheVendor.app/Contents/MacOS/TheVendor: ui_ProductPage.h ui_product.h ui_addproductpage.h ui_adminsetupwindow.h ui_loginwindow.h ui_mainwindow.h ui_registerwindow.h $(OBJECTS)  
 	@test -d TheVendor.app/Contents/MacOS/ || mkdir -p TheVendor.app/Contents/MacOS/
 	$(LINK) $(LFLAGS) -o $(TARGET)  $(OBJECTS) $(OBJCOMP) $(LIBS)
 
@@ -865,9 +871,9 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../../sources.qrc $(DISTDIR)/
-	$(COPY_FILE) --parents ../../ProductPage/ProductPage.h ../../ProductPage/cardview.h ../../ProductPage/product.h ../../ProductPage/starrating.h ../../adminsetupwindow.h ../../loginwindow.h ../../mainwindow.h ../../registerwindow.h ../../users.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../../ProductPage/ProductPage.cpp ../../ProductPage/cardview.cpp ../../ProductPage/product.cpp ../../ProductPage/starrating.cpp ../../adminsetupwindow.cpp ../../loginwindow.cpp ../../main.cpp ../../mainwindow.cpp ../../registerwindow.cpp ../../users.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../../ProductPage/ProductPage.ui ../../ProductPage/product.ui ../../adminsetupwindow.ui ../../loginwindow.ui ../../mainwindow.ui ../../registerwindow.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../../ProductPage/ProductPage.h ../../ProductPage/cardview.h ../../ProductPage/product.h ../../ProductPage/starrating.h ../../addproductpage.h ../../adminsetupwindow.h ../../loginwindow.h ../../mainwindow.h ../../registerwindow.h ../../users.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../../ProductPage/ProductPage.cpp ../../ProductPage/cardview.cpp ../../ProductPage/product.cpp ../../ProductPage/starrating.cpp ../../addproductpage.cpp ../../adminsetupwindow.cpp ../../loginwindow.cpp ../../main.cpp ../../mainwindow.cpp ../../registerwindow.cpp ../../users.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../../ProductPage/ProductPage.ui ../../ProductPage/product.ui ../../addproductpage.ui ../../adminsetupwindow.ui ../../loginwindow.ui ../../mainwindow.ui ../../registerwindow.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -909,12 +915,14 @@ qrc_sources.cpp: ../../sources.qrc \
 		../../assets/DataBase/Users/Customers.txt
 	/Users/mac/Qt/6.7.2/macos/libexec/rcc -name sources --no-zstd ../../sources.qrc -o qrc_sources.cpp
 
-compiler_moc_header_make_all: moc_ProductPage.cpp moc_cardview.cpp moc_product.cpp moc_starrating.cpp moc_adminsetupwindow.cpp moc_loginwindow.cpp moc_mainwindow.cpp moc_registerwindow.cpp
+compiler_moc_header_make_all: moc_ProductPage.cpp moc_cardview.cpp moc_product.cpp moc_starrating.cpp moc_addproductpage.cpp moc_adminsetupwindow.cpp moc_loginwindow.cpp moc_mainwindow.cpp moc_registerwindow.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_ProductPage.cpp moc_cardview.cpp moc_product.cpp moc_starrating.cpp moc_adminsetupwindow.cpp moc_loginwindow.cpp moc_mainwindow.cpp moc_registerwindow.cpp
+	-$(DEL_FILE) moc_ProductPage.cpp moc_cardview.cpp moc_product.cpp moc_starrating.cpp moc_addproductpage.cpp moc_adminsetupwindow.cpp moc_loginwindow.cpp moc_mainwindow.cpp moc_registerwindow.cpp
 moc_ProductPage.cpp: ../../ProductPage/ProductPage.h \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QWidget \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qwidget.h \
+		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QLineEdit \
+		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qlineedit.h \
 		../../ProductPage/cardview.h \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QVBoxLayout \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qboxlayout.h \
@@ -924,6 +932,8 @@ moc_ProductPage.cpp: ../../ProductPage/ProductPage.h \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qlabel.h \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QFrame \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qframe.h \
+		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/QMap \
+		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/qmap.h \
 		../../ProductPage/starrating.h \
 		../../../../Qt/6.7.2/macos/libexec/moc
 	/Users/mac/Qt/6.7.2/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=15 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/mac/Qt/6.7.2/macos/mkspecs/macx-clang -I/Users/mac/Desktop/TheVendor -I/Users/mac/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers -I/Users/mac/Qt/6.7.2/macos/lib/QtGui.framework/Headers -I/Users/mac/Qt/6.7.2/macos/lib/QtSql.framework/Headers -I/Users/mac/Qt/6.7.2/macos/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/mac/Qt/6.7.2/macos/lib ../../ProductPage/ProductPage.h -o moc_ProductPage.cpp
@@ -939,6 +949,8 @@ moc_cardview.cpp: ../../ProductPage/cardview.h \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qlabel.h \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QFrame \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qframe.h \
+		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/QMap \
+		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/qmap.h \
 		../../ProductPage/starrating.h \
 		../../../../Qt/6.7.2/macos/libexec/moc
 	/Users/mac/Qt/6.7.2/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=15 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/mac/Qt/6.7.2/macos/mkspecs/macx-clang -I/Users/mac/Desktop/TheVendor -I/Users/mac/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers -I/Users/mac/Qt/6.7.2/macos/lib/QtGui.framework/Headers -I/Users/mac/Qt/6.7.2/macos/lib/QtSql.framework/Headers -I/Users/mac/Qt/6.7.2/macos/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/mac/Qt/6.7.2/macos/lib ../../ProductPage/cardview.h -o moc_cardview.cpp
@@ -967,6 +979,12 @@ moc_starrating.cpp: ../../ProductPage/starrating.h \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qwidget.h \
 		../../../../Qt/6.7.2/macos/libexec/moc
 	/Users/mac/Qt/6.7.2/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=15 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/mac/Qt/6.7.2/macos/mkspecs/macx-clang -I/Users/mac/Desktop/TheVendor -I/Users/mac/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers -I/Users/mac/Qt/6.7.2/macos/lib/QtGui.framework/Headers -I/Users/mac/Qt/6.7.2/macos/lib/QtSql.framework/Headers -I/Users/mac/Qt/6.7.2/macos/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/mac/Qt/6.7.2/macos/lib ../../ProductPage/starrating.h -o moc_starrating.cpp
+
+moc_addproductpage.cpp: ../../addproductpage.h \
+		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QDialog \
+		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qdialog.h \
+		../../../../Qt/6.7.2/macos/libexec/moc
+	/Users/mac/Qt/6.7.2/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=15 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/mac/Qt/6.7.2/macos/mkspecs/macx-clang -I/Users/mac/Desktop/TheVendor -I/Users/mac/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers -I/Users/mac/Qt/6.7.2/macos/lib/QtGui.framework/Headers -I/Users/mac/Qt/6.7.2/macos/lib/QtSql.framework/Headers -I/Users/mac/Qt/6.7.2/macos/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/mac/Qt/6.7.2/macos/lib ../../addproductpage.h -o moc_addproductpage.cpp
 
 moc_adminsetupwindow.cpp: ../../adminsetupwindow.h \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QDialog \
@@ -1005,9 +1023,9 @@ compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_ProductPage.h ui_product.h ui_adminsetupwindow.h ui_loginwindow.h ui_mainwindow.h ui_registerwindow.h
+compiler_uic_make_all: ui_ProductPage.h ui_product.h ui_addproductpage.h ui_adminsetupwindow.h ui_loginwindow.h ui_mainwindow.h ui_registerwindow.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_ProductPage.h ui_product.h ui_adminsetupwindow.h ui_loginwindow.h ui_mainwindow.h ui_registerwindow.h
+	-$(DEL_FILE) ui_ProductPage.h ui_product.h ui_addproductpage.h ui_adminsetupwindow.h ui_loginwindow.h ui_mainwindow.h ui_registerwindow.h
 ui_ProductPage.h: ../../ProductPage/ProductPage.ui \
 		../../../../Qt/6.7.2/macos/libexec/uic
 	/Users/mac/Qt/6.7.2/macos/libexec/uic ../../ProductPage/ProductPage.ui -o ui_ProductPage.h
@@ -1015,6 +1033,10 @@ ui_ProductPage.h: ../../ProductPage/ProductPage.ui \
 ui_product.h: ../../ProductPage/product.ui \
 		../../../../Qt/6.7.2/macos/libexec/uic
 	/Users/mac/Qt/6.7.2/macos/libexec/uic ../../ProductPage/product.ui -o ui_product.h
+
+ui_addproductpage.h: ../../addproductpage.ui \
+		../../../../Qt/6.7.2/macos/libexec/uic
+	/Users/mac/Qt/6.7.2/macos/libexec/uic ../../addproductpage.ui -o ui_addproductpage.h
 
 ui_adminsetupwindow.h: ../../adminsetupwindow.ui \
 		../../../../Qt/6.7.2/macos/libexec/uic
@@ -1047,6 +1069,8 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 ProductPage.o: ../../ProductPage/ProductPage.cpp ../../ProductPage/productpage.h \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QWidget \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qwidget.h \
+		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QLineEdit \
+		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qlineedit.h \
 		../../ProductPage/cardview.h \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QVBoxLayout \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qboxlayout.h \
@@ -1056,11 +1080,19 @@ ProductPage.o: ../../ProductPage/ProductPage.cpp ../../ProductPage/productpage.h
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qlabel.h \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QFrame \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qframe.h \
+		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/QMap \
+		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/qmap.h \
 		../../ProductPage/starrating.h \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QMessageBox \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qmessagebox.h \
-		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QScrollArea \
-		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qscrollarea.h
+		../../ProductPage/product.h \
+		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QTextEdit \
+		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qtextedit.h \
+		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QHBoxLayout \
+		../../../../Qt/6.7.2/macos/lib/QtGui.framework/Headers/QPixmap \
+		../../../../Qt/6.7.2/macos/lib/QtGui.framework/Headers/qpixmap.h \
+		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/QString \
+		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/qstring.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ProductPage.o ../../ProductPage/ProductPage.cpp
 
 cardview.o: ../../ProductPage/cardview.cpp ../../ProductPage/cardview.h \
@@ -1074,12 +1106,18 @@ cardview.o: ../../ProductPage/cardview.cpp ../../ProductPage/cardview.h \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qlabel.h \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QFrame \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qframe.h \
+		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/QMap \
+		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/qmap.h \
 		../../ProductPage/starrating.h \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QGraphicsDropShadowEffect \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qgraphicseffect.h \
 		../../../../Qt/6.7.2/macos/lib/QtGui.framework/Headers/QPixmap \
 		../../../../Qt/6.7.2/macos/lib/QtGui.framework/Headers/qpixmap.h \
-		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QHBoxLayout
+		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QHBoxLayout \
+		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/QDebug \
+		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/qdebug.h \
+		../../../../Qt/6.7.2/macos/lib/QtGui.framework/Headers/QMouseEvent \
+		../../../../Qt/6.7.2/macos/lib/QtGui.framework/Headers/qevent.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o cardview.o ../../ProductPage/cardview.cpp
 
 product.o: ../../ProductPage/product.cpp ../../ProductPage/product.h \
@@ -1111,6 +1149,12 @@ starrating.o: ../../ProductPage/starrating.cpp ../../ProductPage/starrating.h \
 		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/qdir.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o starrating.o ../../ProductPage/starrating.cpp
 
+addproductpage.o: ../../addproductpage.cpp ../../addproductpage.h \
+		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QDialog \
+		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qdialog.h \
+		ui_addproductpage.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o addproductpage.o ../../addproductpage.cpp
+
 adminsetupwindow.o: ../../adminsetupwindow.cpp ../../adminsetupwindow.h \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QDialog \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qdialog.h \
@@ -1137,6 +1181,8 @@ loginwindow.o: ../../loginwindow.cpp ../../loginwindow.h \
 		../../ProductPage/ProductPage.h \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QWidget \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qwidget.h \
+		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QLineEdit \
+		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qlineedit.h \
 		../../ProductPage/cardview.h \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QVBoxLayout \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qboxlayout.h \
@@ -1146,6 +1192,8 @@ loginwindow.o: ../../loginwindow.cpp ../../loginwindow.h \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qlabel.h \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QFrame \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qframe.h \
+		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/QMap \
+		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/qmap.h \
 		../../ProductPage/starrating.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o loginwindow.o ../../loginwindow.cpp
 
@@ -1191,6 +1239,8 @@ mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
 		../../ProductPage/ProductPage.h \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QWidget \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qwidget.h \
+		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QLineEdit \
+		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qlineedit.h \
 		../../ProductPage/cardview.h \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QVBoxLayout \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qboxlayout.h \
@@ -1200,6 +1250,8 @@ mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qlabel.h \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QFrame \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qframe.h \
+		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/QMap \
+		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/qmap.h \
 		../../ProductPage/starrating.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../../mainwindow.cpp
 
@@ -1231,6 +1283,9 @@ moc_product.o: moc_product.cpp
 
 moc_starrating.o: moc_starrating.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_starrating.o moc_starrating.cpp
+
+moc_addproductpage.o: moc_addproductpage.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_addproductpage.o moc_addproductpage.cpp
 
 moc_adminsetupwindow.o: moc_adminsetupwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_adminsetupwindow.o moc_adminsetupwindow.cpp

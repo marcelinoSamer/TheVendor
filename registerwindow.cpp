@@ -19,9 +19,11 @@ registerWindow::~registerWindow()
     delete ui;
 }
 
-void registerWindow::on_registerPushButton_clicked()
+
+void registerWindow::on_pushButton_clicked()
 {
     hide();
     adminSetUpWindow *a = new adminSetUpWindow();
     a->show();
 }
+

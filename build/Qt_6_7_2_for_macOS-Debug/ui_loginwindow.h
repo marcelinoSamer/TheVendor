@@ -55,6 +55,7 @@ public:
         passwordInput = new QLineEdit(loginWindow);
         passwordInput->setObjectName("passwordInput");
         passwordInput->setGeometry(QRect(350, 220, 230, 35));
+        passwordInput->setEchoMode(QLineEdit::Password);
         label = new QLabel(loginWindow);
         label->setObjectName("label");
         label->setGeometry(QRect(230, 170, 111, 31));

@@ -5,10 +5,10 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    // loginWindow w;
-    // w.show();
-    Product w ;
-    w.show();
+     loginWindow w;
+     w.show();
+    //Product w ;
+    //w.show();
 
 
     return a.exec();

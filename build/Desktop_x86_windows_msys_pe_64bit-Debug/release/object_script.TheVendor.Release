@@ -2,6 +2,7 @@ release/ProductPage.o
 release/cardview.o
 release/product.o
 release/starrating.o
+release/addproductpage.o
 release/adminsetupwindow.o
 release/loginwindow.o
 release/main.o
@@ -13,6 +14,7 @@ release/moc_ProductPage.o
 release/moc_cardview.o
 release/moc_product.o
 release/moc_starrating.o
+release/moc_addproductpage.o
 release/moc_adminsetupwindow.o
 release/moc_loginwindow.o
 release/moc_mainwindow.o

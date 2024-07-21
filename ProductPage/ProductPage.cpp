@@ -2,6 +2,7 @@
 #include <QVBoxLayout>
 #include <QMessageBox>
 #include <ProductPage/product.h>
+
 ProductPage::ProductPage(QWidget *parent)
     : QWidget(parent) {
     searchBar = new QLineEdit(this);

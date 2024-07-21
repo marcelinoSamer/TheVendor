@@ -14,19 +14,22 @@ registerWindow::registerWindow(QWidget *parent)
     ui->ageError->setVisible(false);
     ui->nameAlreadyExistsError->setVisible(false);
     ui->allFieldsMustBeCompletedError->setVisible(false);
+    ui->passwordDoesnotMatchError->setVisible(false);
 
 
     QTextStream Cust (&customers);
-    if (!customers.open(QIODevice::ReadWrite | QIODevice::Text))
+    if (!customers.open(QIODevice::ReadOnly | QIODevice::Text))
         qDebug() << "file not open";
     else
         qDebug() << "file is open";
 
     QTextStream Adm (&admins);
-    if (!admins.open(QIODevice::ReadWrite | QIODevice::Text))
+    if (!admins.open(QIODevice::ReadOnly | QIODevice::Text))
         qDebug() << "file not open";
     else
         qDebug() << "file is open";
+
+
 }
 
 registerWindow::~registerWindow()
@@ -34,16 +37,17 @@ registerWindow::~registerWindow()
     delete ui;
 }
 
-void registerWindow::on_registerPushButton_clicked()
+void registerWindow::on_pushButton_clicked()
 {
-    //ui->allFieldsMustBeCompletedError->setVisible(false);
+    ui->allFieldsMustBeCompletedError->setVisible(false);
 
     QString inputusername = ui->usernameInput->text(),
-            inputpassword = ui->passwordInput->text(),
-            monthBD = ui->monthBD->currentText(),
-            dayBD = ui->dayBD->text(),
-            yearBD = ui->yearBD->text(),
-            userType;
+        inputpassword = ui->passwordInput->text(),
+        inputpassword2 = ui->passwordInput2->text(),
+        monthBD = ui->monthBD->currentText(),
+        dayBD = ui->dayBD->text(),
+        yearBD = ui->yearBD->text(),
+        userType = "";
 
     QStringList userCredList;
 
@@ -115,3 +119,5 @@ void registerWindow::on_registerPushButton_clicked()
     // adminSetUpWindow *a = new adminSetUpWindow();
     // a->show();
 }
+
+

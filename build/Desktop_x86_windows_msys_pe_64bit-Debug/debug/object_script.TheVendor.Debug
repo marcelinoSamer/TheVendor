@@ -2,6 +2,7 @@ debug/ProductPage.o
 debug/cardview.o
 debug/product.o
 debug/starrating.o
+debug/addproductpage.o
 debug/adminsetupwindow.o
 debug/loginwindow.o
 debug/main.o
@@ -13,6 +14,7 @@ debug/moc_ProductPage.o
 debug/moc_cardview.o
 debug/moc_product.o
 debug/moc_starrating.o
+debug/moc_addproductpage.o
 debug/moc_adminsetupwindow.o
 debug/moc_loginwindow.o
 debug/moc_mainwindow.o

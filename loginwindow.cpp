@@ -16,6 +16,7 @@ loginWindow::loginWindow(QWidget *parent)
     ui->setupUi(this);
     ui->errorMessage->setVisible(false);
 
+
     QString dataPath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
     QDir().mkpath(dataPath);
     if(QFile::copy(":/DataBase/assets/DataBase/Users/Admin.txt", dataPath + "/Admin.txt"))
@@ -23,6 +24,7 @@ loginWindow::loginWindow(QWidget *parent)
         qDebug() << "success";
     }
     QFile admins(dataPath + "/Admin.txt");
+
 
     QDir().mkpath(dataPath);
     if(QFile::copy(":/DataBase/assets/DataBase/Users/Customers.txt", dataPath + "/Customers.txt"))
@@ -110,4 +112,3 @@ void loginWindow::on_loginPushButton_clicked()
     ui->errorMessage->setVisible(true);
 
 }
-

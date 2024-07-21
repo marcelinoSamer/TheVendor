@@ -42,6 +42,8 @@ void loginWindow::on_registerPushButton_clicked()
 
 void loginWindow::on_loginPushButton_clicked()
 {
+    ui->errorMessage->setVisible(false);
+
     QStringList userCredList;
     QString password;
 
@@ -53,6 +55,9 @@ void loginWindow::on_loginPushButton_clicked()
 
     QString inputuser = ui->usernameInput->text();
     QString inputpassword = ui->passwordInput->text();
+
+    if(inputuser == "" || inputpassword == "")
+        ui->errorMessage->setVisible(true);
 
     qDebug() << inputuser << inputpassword;
 
@@ -67,6 +72,7 @@ void loginWindow::on_loginPushButton_clicked()
             w->show();
         }
     }
+    inC.seek(0);
 
     while(!inA.atEnd())
     {
@@ -79,6 +85,9 @@ void loginWindow::on_loginPushButton_clicked()
             w->show();
         }
     }
-    inC.seek(0);
+    inA.seek(0);
+
+    ui->errorMessage->setVisible(true);
+
 }
 

@@ -53,6 +53,7 @@ public:
     QLabel *label_7;
     QLineEdit *reenterPasswordInput;
     QLabel *passwordDoesnotMatchError;
+    QPushButton *cancelPushButton;
 
     void setupUi(QDialog *registerWindow)
     {
@@ -85,7 +86,7 @@ public:
         groupBox->setFont(font);
         horizontalLayoutWidget = new QWidget(groupBox);
         horizontalLayoutWidget->setObjectName("horizontalLayoutWidget");
-        horizontalLayoutWidget->setGeometry(QRect(28, 29, 381, 51));
+        horizontalLayoutWidget->setGeometry(QRect(10, 30, 381, 51));
         horizontalLayout = new QHBoxLayout(horizontalLayoutWidget);
         horizontalLayout->setObjectName("horizontalLayout");
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
@@ -157,7 +158,7 @@ public:
         pushButton->setGeometry(QRect(180, 410, 390, 40));
         allFieldsMustBeCompletedError = new QLabel(registerWindow);
         allFieldsMustBeCompletedError->setObjectName("allFieldsMustBeCompletedError");
-        allFieldsMustBeCompletedError->setGeometry(QRect(184, 460, 381, 31));
+        allFieldsMustBeCompletedError->setGeometry(QRect(180, 490, 381, 31));
         QFont font1;
         font1.setPointSize(15);
         allFieldsMustBeCompletedError->setFont(font1);
@@ -180,6 +181,9 @@ public:
         passwordDoesnotMatchError->setObjectName("passwordDoesnotMatchError");
         passwordDoesnotMatchError->setGeometry(QRect(580, 180, 210, 30));
         passwordDoesnotMatchError->setFont(font);
+        cancelPushButton = new QPushButton(registerWindow);
+        cancelPushButton->setObjectName("cancelPushButton");
+        cancelPushButton->setGeometry(QRect(180, 450, 390, 40));
 
         retranslateUi(registerWindow);
 
@@ -218,6 +222,7 @@ public:
         nameAlreadyExistsError->setText(QCoreApplication::translate("registerWindow", "<html><head/><body><p><span style=\" color:#ba341f;\">username already exists </span></p></body></html>", nullptr));
         label_7->setText(QCoreApplication::translate("registerWindow", "re-enter password", nullptr));
         passwordDoesnotMatchError->setText(QCoreApplication::translate("registerWindow", "<html><head/><body><p><span style=\" color:#c03620;\">error: the password does not match</span></p></body></html>", nullptr));
+        cancelPushButton->setText(QCoreApplication::translate("registerWindow", "cancel", nullptr));
     } // retranslateUi
 
 };

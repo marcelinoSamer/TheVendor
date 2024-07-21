@@ -15,6 +15,9 @@ public:
     explicit adminSetUpWindow(QWidget *parent = nullptr);
     ~adminSetUpWindow();
 
+private slots:
+    void on_cancelPushButton_clicked();
+
 private:
     Ui::adminSetUpWindow *ui;
 };

@@ -1,5 +1,6 @@
 #include "adminsetupwindow.h"
 #include "ui_adminsetupwindow.h"
+#include "registerwindow.h"
 
 adminSetUpWindow::adminSetUpWindow(QWidget *parent)
     : QDialog(parent)
@@ -16,3 +17,11 @@ adminSetUpWindow::~adminSetUpWindow()
 {
     delete ui;
 }
+
+void adminSetUpWindow::on_cancelPushButton_clicked()
+{
+    hide();
+    registerWindow *w = new registerWindow();
+    w->show();
+}
+

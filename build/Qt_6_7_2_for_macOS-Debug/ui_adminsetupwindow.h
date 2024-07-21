@@ -55,12 +55,13 @@ public:
     QLabel *companyEmailExistsError;
     QLabel *companyPhoneExistsError;
     QLabel *allFieldsMustBeCompletedError;
+    QPushButton *cancelPushButton;
 
     void setupUi(QDialog *adminSetUpWindow)
     {
         if (adminSetUpWindow->objectName().isEmpty())
             adminSetUpWindow->setObjectName("adminSetUpWindow");
-        adminSetUpWindow->resize(675, 650);
+        adminSetUpWindow->resize(675, 717);
         label = new QLabel(adminSetUpWindow);
         label->setObjectName("label");
         label->setGeometry(QRect(135, 80, 131, 40));
@@ -155,7 +156,7 @@ public:
         companyEmailAddressInput->setGeometry(QRect(290, 290, 250, 40));
         registerCompanyPushButton = new QPushButton(adminSetUpWindow);
         registerCompanyPushButton->setObjectName("registerCompanyPushButton");
-        registerCompanyPushButton->setGeometry(QRect(130, 561, 405, 41));
+        registerCompanyPushButton->setGeometry(QRect(130, 561, 405, 40));
         QFont font1;
         font1.setPointSize(18);
         registerCompanyPushButton->setFont(font1);
@@ -170,7 +171,11 @@ public:
         companyPhoneExistsError->setGeometry(QRect(290, 190, 341, 20));
         allFieldsMustBeCompletedError = new QLabel(adminSetUpWindow);
         allFieldsMustBeCompletedError->setObjectName("allFieldsMustBeCompletedError");
-        allFieldsMustBeCompletedError->setGeometry(QRect(230, 610, 210, 20));
+        allFieldsMustBeCompletedError->setGeometry(QRect(230, 650, 210, 20));
+        cancelPushButton = new QPushButton(adminSetUpWindow);
+        cancelPushButton->setObjectName("cancelPushButton");
+        cancelPushButton->setGeometry(QRect(130, 600, 405, 40));
+        cancelPushButton->setFont(font1);
 
         retranslateUi(adminSetUpWindow);
 
@@ -201,6 +206,7 @@ public:
         companyEmailExistsError->setText(QCoreApplication::translate("adminSetUpWindow", "<html><head/><body><p><span style=\" color:#c23621;\">error: company's email is already for another company</span></p></body></html>", nullptr));
         companyPhoneExistsError->setText(QCoreApplication::translate("adminSetUpWindow", "<html><head/><body><p><span style=\" color:#bd3520;\">error: company's phone is already for another company</span></p></body></html>", nullptr));
         allFieldsMustBeCompletedError->setText(QCoreApplication::translate("adminSetUpWindow", "<html><head/><body><p><span style=\" color:#cc3922;\">error: all fields must be completed </span></p></body></html>", nullptr));
+        cancelPushButton->setText(QCoreApplication::translate("adminSetUpWindow", "cancel", nullptr));
     } // retranslateUi
 
 };

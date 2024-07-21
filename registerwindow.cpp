@@ -5,7 +5,7 @@
 #include <QStandardPaths>
 #include <QFileInfo>
 #include <QDir>
-#include <ProductPage/ProductPage.h>h>
+#include <ProductPage/ProductPage.h>
 
 registerWindow::registerWindow(QWidget *parent)
     : QDialog(parent)
@@ -30,7 +30,6 @@ registerWindow::registerWindow(QWidget *parent)
     else
         qDebug() << "file is open";
 
-    customers.setPermissions(QFile::WriteUser | QFile::ReadUser);
 }
 
 registerWindow::~registerWindow()
@@ -112,7 +111,7 @@ void registerWindow::on_pushButton_clicked()
     {
         if (userType == "Admin")
         {
-            Adm << "\n" << inputusername << " " << inputpassword << " " << dayBD << monthBD << yearBD << " " << userType << "\n";
+            Adm << inputusername << " " << inputpassword << " " << dayBD << monthBD << yearBD << " " << userType << "\n";
             qDebug() << "saved in admin";
             hide();
             ProductPage *w = new ProductPage;
@@ -120,7 +119,7 @@ void registerWindow::on_pushButton_clicked()
         }
         else if (userType == "Customer")
         {
-            Cust << "\n" << inputusername << " " << inputpassword << " " << dayBD << monthBD << yearBD << " " << userType << "\n";
+            Cust << inputusername << " " << inputpassword << " " << dayBD << monthBD << yearBD << " " << userType << "\n";
             qDebug() << "saved in customer";
             hide();
             ProductPage *w = new ProductPage;

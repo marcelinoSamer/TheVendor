@@ -9,20 +9,21 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-    // QString dataPath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
-    // QDir().mkpath(dataPath);
-    // if(QFile::copy(":/DataBase/assets/DataBase/Users/Admin.txt", dataPath + "/Admin.txt"))
-    // {
-    //     qDebug() << "success";
-    // }
-    // QFile admins(dataPath + "/Admin.txt");
+    QDir().mkpath(dataPath + "/TheVendor/");
+    if(QFile::copy(":/DataBase/assets/DataBase/Users/Admin.txt", dataPath + "/TheVendor/Admin.txt"))
+    {
+        qDebug() << "success";
+    }
 
-    // QDir().mkpath(dataPath);
-    // if(QFile::copy(":/DataBase/assets/DataBase/Users/Customers.txt", dataPath + "/Customers.txt"))
-    // {
-    //     qDebug() << "success";
-    // }
-    // QFile customers(dataPath + "/Customers.txt");
+    if(QFile::copy(":/DataBase/assets/DataBase/Users/Customers.txt", dataPath + "/TheVendor/Customers.txt"))
+    {
+        qDebug() << "success";
+    }
+
+    qDebug() << dataPath;
+
+    customers.setPermissions(QFile::WriteUser | QFile::ReadUser);
+    admins.setPermissions(QFile::WriteUser | QFile::ReadUser);
 
 
 

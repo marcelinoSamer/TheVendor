@@ -1,7 +1,6 @@
 #include "loginwindow.h"
 #include "ui_loginwindow.h"
 #include "registerwindow.h"
-#include "mainwindow.h"
 #include "ProductPage/ProductPage.h"
 #include "users.h"
 #include <QTextStream>
@@ -17,21 +16,6 @@ loginWindow::loginWindow(QWidget *parent)
     ui->errorMessage->setVisible(false);
 
 
-    QDir().mkpath(dataPath + "/TheVendor/");
-    if(QFile::copy(":/DataBase/assets/DataBase/Users/Admin.txt", dataPath + "/TheVendor/Admin.txt"))
-    {
-        qDebug() << "success";
-    }
-
-    if(QFile::copy(":/DataBase/assets/DataBase/Users/Customers.txt", dataPath + "/TheVendor/Customers.txt"))
-    {
-        qDebug() << "success";
-    }
-
-    qDebug() << dataPath;
-
-    customers.setPermissions(QFile::WriteUser | QFile::ReadUser);
-    admins.setPermissions(QFile::WriteUser | QFile::ReadUser);
 
     QTextStream Cust (&customers);
     if (!customers.open(QIODevice::ReadOnly | QIODevice::Text))
@@ -70,7 +54,6 @@ void loginWindow::on_loginPushButton_clicked()
     ui->errorMessage->setVisible(false);
 
     QStringList userCredList;
-    QString password;
 
     QTextStream Cust (&customers);
     customers.open(QIODevice::ReadWrite | QIODevice::Text);
@@ -81,39 +64,38 @@ void loginWindow::on_loginPushButton_clicked()
     QString inputuser = ui->usernameInput->text();
     QString inputpassword = ui->passwordInput->text();
 
+    qDebug() << inputuser << inputpassword;
 
 
     if(inputuser == "" || inputpassword == "")
         ui->errorMessage->setVisible(true);
-
-    qDebug() << inputuser << inputpassword;
-
-    while(!Cust.atEnd())
+    else
     {
-        userCredList = Cust.readLine().split(" ");
-        //qDebug() << userCredList[0] << userCredList[1] << "\n";
-        if (inputuser == userCredList[0] && inputpassword == userCredList[1])
+        while(!Cust.atEnd())
         {
-            hide();
-            ProductPage *w = new ProductPage;
-            w->show();
+            userCredList = Cust.readLine().split(" ");
+            if (inputuser == userCredList[0] && inputpassword == userCredList[1])
+            {
+                hide();
+                ProductPage *w = new ProductPage;
+                w->show();
+            }
         }
-    }
-    Cust.seek(0);
+        Cust.seek(0);
 
-    while(!Adm.atEnd())
-    {
-        userCredList = Adm.readLine().split(" ");
-        //qDebug() << userCredList[0] << userCredList[1] << "\n";
-        if (inputuser == userCredList[0] && inputpassword == userCredList[1])
+        while(!Adm.atEnd())
         {
-            hide();
-            ProductPage *w = new ProductPage;
-            w->show();
+            userCredList = Adm.readLine().split(" ");
+            if (inputuser == userCredList[0] && inputpassword == userCredList[1])
+            {
+                hide();
+                ProductPage *w = new ProductPage;
+                w->show();
+            }
         }
+        Adm.seek(0);
     }
-    Adm.seek(0);
 
-    ui->errorMessage->setVisible(true);
+
 
 }

@@ -65,6 +65,7 @@ public:
         passwordInput = new QLineEdit(registerWindow);
         passwordInput->setObjectName("passwordInput");
         passwordInput->setGeometry(QRect(260, 110, 250, 40));
+        passwordInput->setEchoMode(QLineEdit::Password);
         label = new QLabel(registerWindow);
         label->setObjectName("label");
         label->setGeometry(QRect(79, 50, 141, 30));
@@ -174,6 +175,7 @@ public:
         passwordInput2 = new QLineEdit(registerWindow);
         passwordInput2->setObjectName("passwordInput2");
         passwordInput2->setGeometry(QRect(260, 170, 250, 40));
+        passwordInput2->setEchoMode(QLineEdit::Password);
         passwordDoesnotMatchError = new QLabel(registerWindow);
         passwordDoesnotMatchError->setObjectName("passwordDoesnotMatchError");
         passwordDoesnotMatchError->setGeometry(QRect(520, 170, 261, 30));

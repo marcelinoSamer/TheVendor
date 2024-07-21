@@ -32,7 +32,7 @@ void registerWindow::on_pushButton_clicked()
 void registerWindow::on_cancelPushButton_clicked()
 {
     hide();
-    loginWindow *l =new loginWindow();
+    loginWindow * l =new loginWindow();
     l->show();
 }
 

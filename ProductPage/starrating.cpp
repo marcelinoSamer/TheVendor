@@ -1,4 +1,4 @@
-#include "starrating.h"
+#include "ProductPage/starrating.h"
 #include <QPainter>
 #include <QMouseEvent>
 #include <QDir>

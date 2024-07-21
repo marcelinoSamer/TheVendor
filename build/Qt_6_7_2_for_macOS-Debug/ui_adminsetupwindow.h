@@ -61,7 +61,7 @@ public:
     {
         if (adminSetUpWindow->objectName().isEmpty())
             adminSetUpWindow->setObjectName("adminSetUpWindow");
-        adminSetUpWindow->resize(675, 717);
+        adminSetUpWindow->resize(680, 720);
         label = new QLabel(adminSetUpWindow);
         label->setObjectName("label");
         label->setGeometry(QRect(135, 80, 131, 40));
@@ -171,7 +171,7 @@ public:
         companyPhoneExistsError->setGeometry(QRect(290, 190, 341, 20));
         allFieldsMustBeCompletedError = new QLabel(adminSetUpWindow);
         allFieldsMustBeCompletedError->setObjectName("allFieldsMustBeCompletedError");
-        allFieldsMustBeCompletedError->setGeometry(QRect(230, 650, 210, 20));
+        allFieldsMustBeCompletedError->setGeometry(QRect(230, 640, 210, 20));
         cancelPushButton = new QPushButton(adminSetUpWindow);
         cancelPushButton->setObjectName("cancelPushButton");
         cancelPushButton->setGeometry(QRect(130, 600, 405, 40));

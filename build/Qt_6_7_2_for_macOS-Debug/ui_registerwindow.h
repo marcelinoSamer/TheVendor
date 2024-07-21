@@ -86,7 +86,7 @@ public:
         groupBox->setFont(font);
         horizontalLayoutWidget = new QWidget(groupBox);
         horizontalLayoutWidget->setObjectName("horizontalLayoutWidget");
-        horizontalLayoutWidget->setGeometry(QRect(10, 30, 381, 51));
+        horizontalLayoutWidget->setGeometry(QRect(28, 29, 381, 51));
         horizontalLayout = new QHBoxLayout(horizontalLayoutWidget);
         horizontalLayout->setObjectName("horizontalLayout");
         horizontalLayout->setContentsMargins(0, 0, 0, 0);

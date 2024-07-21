@@ -2,6 +2,7 @@
 #include <QApplication>
 #include "ProductPage/product.h"
 #include "addproductpage.h"
+#include "productratigwidget.h"
 
 int main(int argc, char *argv[])
 {

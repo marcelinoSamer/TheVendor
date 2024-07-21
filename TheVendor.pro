@@ -18,6 +18,7 @@ SOURCES += \
     loginwindow.cpp \
     main.cpp \
     mainwindow.cpp \
+    productratigwidget.cpp \
     registerwindow.cpp \
     users.cpp
 
@@ -30,6 +31,7 @@ HEADERS += \
     adminsetupwindow.h \
     loginwindow.h \
     mainwindow.h \
+    productratigwidget.h \
     registerwindow.h \
     users.h
 

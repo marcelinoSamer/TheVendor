@@ -21,7 +21,7 @@ adminSetUpWindow::~adminSetUpWindow()
 void adminSetUpWindow::on_cancelPushButton_clicked()
 {
     hide();
-    registerWindow *w = new registerWindow();
-    w->show();
+    registerWindow * r = new registerWindow();
+    r->show();
 }
 

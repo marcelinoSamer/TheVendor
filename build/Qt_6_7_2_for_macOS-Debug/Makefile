@@ -61,6 +61,7 @@ SOURCES       = ../../ProductPage/ProductPage.cpp \
 		../../loginwindow.cpp \
 		../../main.cpp \
 		../../mainwindow.cpp \
+		../../productratigwidget.cpp \
 		../../registerwindow.cpp \
 		../../users.cpp qrc_sources.cpp \
 		moc_ProductPage.cpp \
@@ -71,6 +72,7 @@ SOURCES       = ../../ProductPage/ProductPage.cpp \
 		moc_adminsetupwindow.cpp \
 		moc_loginwindow.cpp \
 		moc_mainwindow.cpp \
+		moc_productratigwidget.cpp \
 		moc_registerwindow.cpp
 OBJECTS       = ProductPage.o \
 		cardview.o \
@@ -81,6 +83,7 @@ OBJECTS       = ProductPage.o \
 		loginwindow.o \
 		main.o \
 		mainwindow.o \
+		productratigwidget.o \
 		registerwindow.o \
 		users.o \
 		qrc_sources.o \
@@ -92,6 +95,7 @@ OBJECTS       = ProductPage.o \
 		moc_adminsetupwindow.o \
 		moc_loginwindow.o \
 		moc_mainwindow.o \
+		moc_productratigwidget.o \
 		moc_registerwindow.o
 DIST          = ../../assets/cat1.jpg \
 		../../assets/cat2.jpg \
@@ -337,6 +341,7 @@ DIST          = ../../assets/cat1.jpg \
 		../../adminsetupwindow.h \
 		../../loginwindow.h \
 		../../mainwindow.h \
+		../../productratigwidget.h \
 		../../registerwindow.h \
 		../../users.h ../../ProductPage/ProductPage.cpp \
 		../../ProductPage/cardview.cpp \
@@ -347,6 +352,7 @@ DIST          = ../../assets/cat1.jpg \
 		../../loginwindow.cpp \
 		../../main.cpp \
 		../../mainwindow.cpp \
+		../../productratigwidget.cpp \
 		../../registerwindow.cpp \
 		../../users.cpp
 QMAKE_TARGET  = TheVendor
@@ -871,8 +877,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../../sources.qrc $(DISTDIR)/
-	$(COPY_FILE) --parents ../../ProductPage/ProductPage.h ../../ProductPage/cardview.h ../../ProductPage/product.h ../../ProductPage/starrating.h ../../addproductpage.h ../../adminsetupwindow.h ../../loginwindow.h ../../mainwindow.h ../../registerwindow.h ../../users.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../../ProductPage/ProductPage.cpp ../../ProductPage/cardview.cpp ../../ProductPage/product.cpp ../../ProductPage/starrating.cpp ../../addproductpage.cpp ../../adminsetupwindow.cpp ../../loginwindow.cpp ../../main.cpp ../../mainwindow.cpp ../../registerwindow.cpp ../../users.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../../ProductPage/ProductPage.h ../../ProductPage/cardview.h ../../ProductPage/product.h ../../ProductPage/starrating.h ../../addproductpage.h ../../adminsetupwindow.h ../../loginwindow.h ../../mainwindow.h ../../productratigwidget.h ../../registerwindow.h ../../users.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../../ProductPage/ProductPage.cpp ../../ProductPage/cardview.cpp ../../ProductPage/product.cpp ../../ProductPage/starrating.cpp ../../addproductpage.cpp ../../adminsetupwindow.cpp ../../loginwindow.cpp ../../main.cpp ../../mainwindow.cpp ../../productratigwidget.cpp ../../registerwindow.cpp ../../users.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../../ProductPage/ProductPage.ui ../../ProductPage/product.ui ../../addproductpage.ui ../../adminsetupwindow.ui ../../loginwindow.ui ../../mainwindow.ui ../../registerwindow.ui $(DISTDIR)/
 
 
@@ -915,9 +921,9 @@ qrc_sources.cpp: ../../sources.qrc \
 		../../assets/DataBase/Users/Customers.txt
 	/Users/mac/Qt/6.7.2/macos/libexec/rcc -name sources --no-zstd ../../sources.qrc -o qrc_sources.cpp
 
-compiler_moc_header_make_all: moc_ProductPage.cpp moc_cardview.cpp moc_product.cpp moc_starrating.cpp moc_addproductpage.cpp moc_adminsetupwindow.cpp moc_loginwindow.cpp moc_mainwindow.cpp moc_registerwindow.cpp
+compiler_moc_header_make_all: moc_ProductPage.cpp moc_cardview.cpp moc_product.cpp moc_starrating.cpp moc_addproductpage.cpp moc_adminsetupwindow.cpp moc_loginwindow.cpp moc_mainwindow.cpp moc_productratigwidget.cpp moc_registerwindow.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_ProductPage.cpp moc_cardview.cpp moc_product.cpp moc_starrating.cpp moc_addproductpage.cpp moc_adminsetupwindow.cpp moc_loginwindow.cpp moc_mainwindow.cpp moc_registerwindow.cpp
+	-$(DEL_FILE) moc_ProductPage.cpp moc_cardview.cpp moc_product.cpp moc_starrating.cpp moc_addproductpage.cpp moc_adminsetupwindow.cpp moc_loginwindow.cpp moc_mainwindow.cpp moc_productratigwidget.cpp moc_registerwindow.cpp
 moc_ProductPage.cpp: ../../ProductPage/ProductPage.h \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QWidget \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qwidget.h \
@@ -1012,6 +1018,23 @@ moc_mainwindow.cpp: ../../mainwindow.h \
 		../../../../Qt/6.7.2/macos/lib/QtSql.framework/Headers/qsqldatabase.h \
 		../../../../Qt/6.7.2/macos/libexec/moc
 	/Users/mac/Qt/6.7.2/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=15 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/mac/Qt/6.7.2/macos/mkspecs/macx-clang -I/Users/mac/Desktop/TheVendor -I/Users/mac/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers -I/Users/mac/Qt/6.7.2/macos/lib/QtGui.framework/Headers -I/Users/mac/Qt/6.7.2/macos/lib/QtSql.framework/Headers -I/Users/mac/Qt/6.7.2/macos/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/mac/Qt/6.7.2/macos/lib ../../mainwindow.h -o moc_mainwindow.cpp
+
+moc_productratigwidget.cpp: ../../productratigwidget.h \
+		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QWidget \
+		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qwidget.h \
+		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QLabel \
+		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qlabel.h \
+		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QVBoxLayout \
+		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qboxlayout.h \
+		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QHBoxLayout \
+		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QPushButton \
+		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qpushbutton.h \
+		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/QFile \
+		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/qfile.h \
+		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/QTextStream \
+		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/qtextstream.h \
+		../../../../Qt/6.7.2/macos/libexec/moc
+	/Users/mac/Qt/6.7.2/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=15 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/mac/Qt/6.7.2/macos/mkspecs/macx-clang -I/Users/mac/Desktop/TheVendor -I/Users/mac/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers -I/Users/mac/Qt/6.7.2/macos/lib/QtGui.framework/Headers -I/Users/mac/Qt/6.7.2/macos/lib/QtSql.framework/Headers -I/Users/mac/Qt/6.7.2/macos/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/mac/Qt/6.7.2/macos/lib ../../productratigwidget.h -o moc_productratigwidget.cpp
 
 moc_registerwindow.cpp: ../../registerwindow.h \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QDialog \
@@ -1158,7 +1181,8 @@ addproductpage.o: ../../addproductpage.cpp ../../addproductpage.h \
 adminsetupwindow.o: ../../adminsetupwindow.cpp ../../adminsetupwindow.h \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QDialog \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qdialog.h \
-		ui_adminsetupwindow.h
+		ui_adminsetupwindow.h \
+		../../registerwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o adminsetupwindow.o ../../adminsetupwindow.cpp
 
 loginwindow.o: ../../loginwindow.cpp ../../loginwindow.h \
@@ -1222,7 +1246,9 @@ main.o: ../../main.cpp ../../loginwindow.h \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QPushButton \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qpushbutton.h \
 		../../../../Qt/6.7.2/macos/lib/QtGui.framework/Headers/QPixmap \
-		../../../../Qt/6.7.2/macos/lib/QtGui.framework/Headers/qpixmap.h
+		../../../../Qt/6.7.2/macos/lib/QtGui.framework/Headers/qpixmap.h \
+		../../addproductpage.h \
+		../../productratigwidget.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../../main.cpp
 
 mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
@@ -1255,11 +1281,22 @@ mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
 		../../ProductPage/starrating.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../../mainwindow.cpp
 
+productratigwidget.o: ../../productratigwidget.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o productratigwidget.o ../../productratigwidget.cpp
+
 registerwindow.o: ../../registerwindow.cpp ../../registerwindow.h \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QDialog \
 		../../../../Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qdialog.h \
 		ui_registerwindow.h \
-		../../adminsetupwindow.h
+		../../adminsetupwindow.h \
+		../../loginwindow.h \
+		../../users.h \
+		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/QString \
+		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/qstring.h \
+		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/QFile \
+		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/qfile.h \
+		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/QTextStream \
+		../../../../Qt/6.7.2/macos/lib/QtCore.framework/Headers/qtextstream.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o registerwindow.o ../../registerwindow.cpp
 
 users.o: ../../users.cpp ../../users.h \
@@ -1295,6 +1332,9 @@ moc_loginwindow.o: moc_loginwindow.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
+
+moc_productratigwidget.o: moc_productratigwidget.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_productratigwidget.o moc_productratigwidget.cpp
 
 moc_registerwindow.o: moc_registerwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_registerwindow.o moc_registerwindow.cpp

@@ -17,21 +17,21 @@ loginWindow::loginWindow(QWidget *parent)
     ui->errorMessage->setVisible(false);
 
 
-    QString dataPath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
-    QDir().mkpath(dataPath);
-    if(QFile::copy(":/DataBase/assets/DataBase/Users/Admin.txt", dataPath + "/Admin.txt"))
+    QDir().mkpath(dataPath + "/TheVendor/");
+    if(QFile::copy(":/DataBase/assets/DataBase/Users/Admin.txt", dataPath + "/TheVendor/Admin.txt"))
     {
         qDebug() << "success";
     }
-    QFile admins(dataPath + "/Admin.txt");
 
-
-    QDir().mkpath(dataPath);
-    if(QFile::copy(":/DataBase/assets/DataBase/Users/Customers.txt", dataPath + "/Customers.txt"))
+    if(QFile::copy(":/DataBase/assets/DataBase/Users/Customers.txt", dataPath + "/TheVendor/Customers.txt"))
     {
         qDebug() << "success";
     }
-    QFile customers(dataPath + "/Customers.txt");
+
+    qDebug() << dataPath;
+
+    customers.setPermissions(QFile::WriteUser | QFile::ReadUser);
+    admins.setPermissions(QFile::WriteUser | QFile::ReadUser);
 
     QTextStream Cust (&customers);
     if (!customers.open(QIODevice::ReadOnly | QIODevice::Text))
@@ -44,6 +44,9 @@ loginWindow::loginWindow(QWidget *parent)
         qDebug() << "file not open";
     else
         qDebug() << "file is open";
+
+    if(customers.size() == 0)
+        qDebug() << "empty";
 }
 
 loginWindow::~loginWindow()
@@ -78,6 +81,8 @@ void loginWindow::on_loginPushButton_clicked()
     QString inputuser = ui->usernameInput->text();
     QString inputpassword = ui->passwordInput->text();
 
+
+
     if(inputuser == "" || inputpassword == "")
         ui->errorMessage->setVisible(true);
 
@@ -86,7 +91,7 @@ void loginWindow::on_loginPushButton_clicked()
     while(!Cust.atEnd())
     {
         userCredList = Cust.readLine().split(" ");
-        qDebug() << userCredList[0] << userCredList[1] << "\n";
+        //qDebug() << userCredList[0] << userCredList[1] << "\n";
         if (inputuser == userCredList[0] && inputpassword == userCredList[1])
         {
             hide();
@@ -99,7 +104,7 @@ void loginWindow::on_loginPushButton_clicked()
     while(!Adm.atEnd())
     {
         userCredList = Adm.readLine().split(" ");
-        qDebug() << userCredList[0] << userCredList[1] << "\n";
+        //qDebug() << userCredList[0] << userCredList[1] << "\n";
         if (inputuser == userCredList[0] && inputpassword == userCredList[1])
         {
             hide();

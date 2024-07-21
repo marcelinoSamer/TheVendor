@@ -1,7 +1,7 @@
 #include "users.h"
 #include <QStandardPaths>
 
-QString dataPath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
+QString dataPath = QStandardPaths::writableLocation(QStandardPaths::HomeLocation);
 
-QFile customers(dataPath + "/Customers.txt");
-QFile admins(dataPath + "/Admin.txt");
+QFile customers(dataPath + "/TheVendor/Customers.txt");
+QFile admins(dataPath + "/TheVendor/Admin.txt");

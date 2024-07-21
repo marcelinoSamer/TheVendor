@@ -5,6 +5,7 @@
 #include <QStandardPaths>
 #include <QFileInfo>
 #include <QDir>
+#include <ProductPage/ProductPage.h>h>
 
 registerWindow::registerWindow(QWidget *parent)
     : QDialog(parent)
@@ -18,18 +19,18 @@ registerWindow::registerWindow(QWidget *parent)
 
 
     QTextStream Cust (&customers);
-    if (!customers.open(QIODevice::ReadOnly | QIODevice::Text))
+    if (!customers.open(QIODevice::ReadWrite | QIODevice::Text))
         qDebug() << "file not open";
     else
         qDebug() << "file is open";
 
     QTextStream Adm (&admins);
-    if (!admins.open(QIODevice::ReadOnly | QIODevice::Text))
+    if (!admins.open(QIODevice::ReadWrite | QIODevice::Text))
         qDebug() << "file not open";
     else
         qDebug() << "file is open";
 
-
+    customers.setPermissions(QFile::WriteUser | QFile::ReadUser);
 }
 
 registerWindow::~registerWindow()
@@ -39,7 +40,10 @@ registerWindow::~registerWindow()
 
 void registerWindow::on_pushButton_clicked()
 {
+    ui->ageError->setVisible(false);
+    ui->nameAlreadyExistsError->setVisible(false);
     ui->allFieldsMustBeCompletedError->setVisible(false);
+    ui->passwordDoesnotMatchError->setVisible(false);
 
     QString inputusername = ui->usernameInput->text(),
         inputpassword = ui->passwordInput->text(),
@@ -49,7 +53,8 @@ void registerWindow::on_pushButton_clicked()
         yearBD = ui->yearBD->text(),
         userType = "";
 
-    QStringList userCredList;
+    QStringList userCredList0;
+    QStringList userCredList1;
 
     if (ui->merchantRB->isChecked() || ui->adminRB->isChecked())
         userType = "Admin";
@@ -66,58 +71,62 @@ void registerWindow::on_pushButton_clicked()
     QTextStream Adm (&admins);
     admins.open(QIODevice::ReadWrite | QIODevice::Text);
 
-    bool alreadyExist = false;
+    bool alreadyExist = false, error = false;
 
-
-    if(inputusername == "" || inputpassword == "" || monthBD == "" || dayBD == "" || yearBD == "" || userType == "")
-        ui->allFieldsMustBeCompletedError->setVisible(true);
-    else
+    qDebug() << inputusername << inputpassword << inputpassword2 << monthBD << dayBD << yearBD << userType;
+    if(inputusername == "" || inputpassword == "" || inputpassword2 == "" || monthBD == "" || dayBD == "" || yearBD == "" || userType == "")
     {
-        if(userType == "Admin")
-        {
+        ui->allFieldsMustBeCompletedError->setVisible(true);
+        error = true;
+    }
 
-        }
-        else if(userType == "Customer")
+    Cust.seek(0);
+    Adm.seek(0);
+    while(!Cust.atEnd() && !Adm.atEnd())
+    {
+        userCredList0 = Cust.readLine().split(" ");
+        userCredList1 = Adm.readLine().split(" ");
+
+        if (inputusername == userCredList0[0] || inputusername == userCredList1[0])
         {
-            Cust.seek(0);
-            while(!Cust.atEnd())
-            {
-                userCredList = Cust.readLine().split(" ");
-                if (inputusername == userCredList[0])
-                {
-                    ui->nameAlreadyExistsError->setVisible(true);
-                    alreadyExist = true;
-                    break;
-                }
-            }
-            if (alreadyExist == false)
-            {
-                Cust.seek(customers.size());
-                Cust << inputusername << inputpassword << BD << userType;
-            }
+            ui->nameAlreadyExistsError->setVisible(true);
+            alreadyExist = true;
+            error = true;
+            break;
         }
     }
 
+    if (! (inputpassword == inputpassword2))
+    {
+        ui->passwordDoesnotMatchError->setVisible(true);
+        error = true;
+    }
 
+    if (12 < (yearBD.toInt() - 2024))
+    {
+        ui->ageError->setVisible(true);
+        error = true;
+    }
 
-    // while(!inA.atEnd())
-    // {
-    //     userCredList = inA.readLine().split(" ");
-    //     qDebug() << userCredList[0] << userCredList[1] << "\n";
-    //     if (inputuser == userCredList[0] && inputpassword == userCredList[1])
-    //     {
-    //         hide();
-    //         ProductPage *w = new ProductPage;
-    //         w->show();
-    //     }
-    // }
-    // inA.seek(0);
-
-    // ui->errorMessage->setVisible(true);
-
-    // hide();
-    // adminSetUpWindow *a = new adminSetUpWindow();
-    // a->show();
+    if (error == false && alreadyExist == false)
+    {
+        if (userType == "Admin")
+        {
+            Adm << "\n" << inputusername << " " << inputpassword << " " << dayBD << monthBD << yearBD << " " << userType << "\n";
+            qDebug() << "saved in admin";
+            hide();
+            ProductPage *w = new ProductPage;
+            w->show();
+        }
+        else if (userType == "Customer")
+        {
+            Cust << "\n" << inputusername << " " << inputpassword << " " << dayBD << monthBD << yearBD << " " << userType << "\n";
+            qDebug() << "saved in customer";
+            hide();
+            ProductPage *w = new ProductPage;
+            w->show();
+        }
+    }
 }
 
 

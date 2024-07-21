@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QLineEdit" name="usernameInput">
    <property name="geometry">
     <rect>
      <x>320</x>
@@ -23,7 +23,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_2">
+  <widget class="QLineEdit" name="passwordInput">
    <property name="geometry">
     <rect>
      <x>320</x>
@@ -115,21 +115,21 @@
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QRadioButton" name="radioButton_2">
+      <widget class="QRadioButton" name="merchantRB">
        <property name="text">
         <string>Merchant</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QRadioButton" name="radioButton">
+      <widget class="QRadioButton" name="customerRB">
        <property name="text">
         <string>Customer</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QRadioButton" name="radioButton_3">
+      <widget class="QRadioButton" name="adminRB">
        <property name="text">
         <string>Admin</string>
        </property>
@@ -156,7 +156,7 @@
      </widget>
     </item>
     <item row="1" column="2">
-     <widget class="QLineEdit" name="lineEdit_4"/>
+     <widget class="QLineEdit" name="yearBD"/>
     </item>
     <item row="0" column="2">
      <widget class="QLabel" name="label_6">
@@ -166,7 +166,7 @@
      </widget>
     </item>
     <item row="1" column="0">
-     <widget class="QComboBox" name="comboBox">
+     <widget class="QComboBox" name="monthBD">
       <item>
        <property name="text">
         <string>Jan.</string>
@@ -230,7 +230,7 @@
      </widget>
     </item>
     <item row="1" column="1">
-     <widget class="QLineEdit" name="lineEdit_3"/>
+     <widget class="QLineEdit" name="dayBD"/>
     </item>
     <item row="0" column="1">
      <widget class="QLabel" name="label_5">

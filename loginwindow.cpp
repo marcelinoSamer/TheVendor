@@ -5,6 +5,9 @@
 #include "ProductPage/ProductPage.h"
 #include "users.h"
 #include <QTextStream>
+#include <QFileInfo>
+#include <QDir>
+#include <QStandardPaths>
 
 loginWindow::loginWindow(QWidget *parent)
     : QDialog(parent)
@@ -13,13 +16,28 @@ loginWindow::loginWindow(QWidget *parent)
     ui->setupUi(this);
     ui->errorMessage->setVisible(false);
 
-    QTextStream inC (&customers);
+    QString dataPath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
+    QDir().mkpath(dataPath);
+    if(QFile::copy(":/DataBase/assets/DataBase/Users/Admin.txt", dataPath + "/Admin.txt"))
+    {
+        qDebug() << "success";
+    }
+    QFile admins(dataPath + "/Admin.txt");
+
+    QDir().mkpath(dataPath);
+    if(QFile::copy(":/DataBase/assets/DataBase/Users/Customers.txt", dataPath + "/Customers.txt"))
+    {
+        qDebug() << "success";
+    }
+    QFile customers(dataPath + "/Customers.txt");
+
+    QTextStream Cust (&customers);
     if (!customers.open(QIODevice::ReadOnly | QIODevice::Text))
         qDebug() << "file not open";
     else
         qDebug() << "file is open";
 
-    QTextStream inA (&admins);
+    QTextStream Adm (&admins);
     if (!admins.open(QIODevice::ReadOnly | QIODevice::Text))
         qDebug() << "file not open";
     else
@@ -34,6 +52,8 @@ loginWindow::~loginWindow()
 
 void loginWindow::on_registerPushButton_clicked()
 {
+    customers.close();
+    admins.close();
     hide();
     registerWindow * r = new registerWindow();
     r->show();
@@ -47,11 +67,11 @@ void loginWindow::on_loginPushButton_clicked()
     QStringList userCredList;
     QString password;
 
-    QTextStream inC (&customers);
-    customers.open(QIODevice::ReadOnly | QIODevice::Text);
+    QTextStream Cust (&customers);
+    customers.open(QIODevice::ReadWrite | QIODevice::Text);
 
-    QTextStream inA (&admins);
-    admins.open(QIODevice::ReadOnly | QIODevice::Text);
+    QTextStream Adm (&admins);
+    admins.open(QIODevice::ReadWrite | QIODevice::Text);
 
     QString inputuser = ui->usernameInput->text();
     QString inputpassword = ui->passwordInput->text();
@@ -61,9 +81,9 @@ void loginWindow::on_loginPushButton_clicked()
 
     qDebug() << inputuser << inputpassword;
 
-    while(!inC.atEnd())
+    while(!Cust.atEnd())
     {
-        userCredList = inC.readLine().split(" ");
+        userCredList = Cust.readLine().split(" ");
         qDebug() << userCredList[0] << userCredList[1] << "\n";
         if (inputuser == userCredList[0] && inputpassword == userCredList[1])
         {
@@ -72,11 +92,11 @@ void loginWindow::on_loginPushButton_clicked()
             w->show();
         }
     }
-    inC.seek(0);
+    Cust.seek(0);
 
-    while(!inA.atEnd())
+    while(!Adm.atEnd())
     {
-        userCredList = inA.readLine().split(" ");
+        userCredList = Adm.readLine().split(" ");
         qDebug() << userCredList[0] << userCredList[1] << "\n";
         if (inputuser == userCredList[0] && inputpassword == userCredList[1])
         {
@@ -85,7 +105,7 @@ void loginWindow::on_loginPushButton_clicked()
             w->show();
         }
     }
-    inA.seek(0);
+    Adm.seek(0);
 
     ui->errorMessage->setVisible(true);
 

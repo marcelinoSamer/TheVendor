@@ -3,7 +3,6 @@
 
 #include <QDialog>
 #include "users.h"
-#include <QTextStream>
 
 namespace Ui {
 class loginWindow;

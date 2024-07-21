@@ -39,7 +39,7 @@ void CardView::addCard(const QString &imagePath, const QString &title, const QSt
 
     QPushButton *titleButton = new QPushButton(title, card);
     titleButton->setObjectName("titleButton");
-    titleButton->setStyleSheet("font-weight: bold; font-size: 24px; border: none;");
+    titleButton->setStyleSheet("font-weight: bold; font-size: 24px; border: none;color:black;");
 
     QPushButton *deleteButton = new QPushButton("Delete", card);
     deleteButton->setObjectName("deleteButton");
@@ -54,13 +54,13 @@ void CardView::addCard(const QString &imagePath, const QString &title, const QSt
 
     QLabel *descriptionLabel = new QLabel(truncatedDescription, card);
     descriptionLabel->setAlignment(Qt::AlignCenter);
-    descriptionLabel->setStyleSheet("font-size: 18px;");
+    descriptionLabel->setStyleSheet("font-size: 18px;color:black;");
 
     QHBoxLayout *bottomLayout = new QHBoxLayout();
 
     QLabel *categoriesLabel = new QLabel(categories.join(", "), card);
     categoriesLabel->setAlignment(Qt::AlignLeft);
-    categoriesLabel->setStyleSheet("font-size: 16px;");
+    categoriesLabel->setStyleSheet("font-size: 16px;color:black;");
 
     StarRating *ratingWidget = new StarRating(card);
     ratingWidget->setRating(rating);

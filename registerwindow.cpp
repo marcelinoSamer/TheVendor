@@ -10,6 +10,8 @@ registerWindow::registerWindow(QWidget *parent)
     ui->ageError->setVisible(false);
     ui->nameAlreadyExistsError->setVisible(false);
     ui->allFieldsMustBeCompletedError->setVisible(false);
+    ui->passwordDoesnotMatchError->setVisible(false);
+
 }
 
 registerWindow::~registerWindow()

@@ -32,7 +32,7 @@ void ProductPage::createCardView() {
     cardView = new CardView(this); // Create the CardView widget
 
     // Add sample cards
-    cardView->addCard("C:/Users/Test/Desktop/cat1.jpg", "Card 1", "This is the description for card 1.This is the description for card 1.This is the description for card 1.This is the description for card 1.This is the description for card 1.This is the description for card 1.", {"Category 1", "Category 2"}, 4);
+    cardView->addCard(":/productImages/assets/cat1.jpg", "Card 1", "This is the description for card 1.This is the description for card 1.This is the description for card 1.This is the description for card 1.This is the description for card 1.This is the description for card 1.", {"Category 1", "Category 2"}, 4);
     cardView->addCard(":/productImages/assets/cat2.jpg", "Card 2", "This is the description for card 2.", {"Category 3", "Category 4"}, 3.5);
     // Add more cards if needed
 }

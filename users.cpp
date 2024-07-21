@@ -1,4 +1,7 @@
 #include "users.h"
+#include <QStandardPaths>
 
-QFile customers(":/DataBase/assets/DataBase/Users/Customers.txt");
-QFile admins(":/DataBase/assets/DataBase/Users/Admin.txt");
+QString dataPath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
+
+QFile customers(dataPath + "/Customers.txt");
+QFile admins(dataPath + "/Admin.txt");

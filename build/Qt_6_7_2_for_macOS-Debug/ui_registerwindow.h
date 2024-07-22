@@ -27,31 +27,31 @@ QT_BEGIN_NAMESPACE
 class Ui_registerWindow
 {
 public:
-    QLineEdit *lineEdit;
-    QLineEdit *lineEdit_2;
+    QLineEdit *usernameInput;
+    QLineEdit *passwordInput;
     QLabel *label;
     QLabel *label_2;
     QLabel *label_3;
     QGroupBox *groupBox;
     QWidget *horizontalLayoutWidget;
     QHBoxLayout *horizontalLayout;
-    QRadioButton *radioButton_2;
-    QRadioButton *radioButton;
-    QRadioButton *radioButton_3;
+    QRadioButton *merchantRB;
+    QRadioButton *customerRB;
+    QRadioButton *adminRB;
     QWidget *gridLayoutWidget;
     QGridLayout *gridLayout;
     QLabel *label_4;
-    QLineEdit *lineEdit_4;
+    QLineEdit *yearBD;
     QLabel *label_6;
-    QComboBox *comboBox;
-    QLineEdit *lineEdit_3;
+    QComboBox *monthBD;
+    QLineEdit *dayBD;
     QLabel *label_5;
     QPushButton *pushButton;
     QLabel *allFieldsMustBeCompletedError;
     QLabel *ageError;
     QLabel *nameAlreadyExistsError;
     QLabel *label_7;
-    QLineEdit *reenterPasswordInput;
+    QLineEdit *passwordInput2;
     QLabel *passwordDoesnotMatchError;
     QPushButton *cancelPushButton;
 
@@ -60,12 +60,12 @@ public:
         if (registerWindow->objectName().isEmpty())
             registerWindow->setObjectName("registerWindow");
         registerWindow->resize(790, 640);
-        lineEdit = new QLineEdit(registerWindow);
-        lineEdit->setObjectName("lineEdit");
-        lineEdit->setGeometry(QRect(320, 60, 250, 40));
-        lineEdit_2 = new QLineEdit(registerWindow);
-        lineEdit_2->setObjectName("lineEdit_2");
-        lineEdit_2->setGeometry(QRect(320, 120, 250, 40));
+        usernameInput = new QLineEdit(registerWindow);
+        usernameInput->setObjectName("usernameInput");
+        usernameInput->setGeometry(QRect(320, 60, 250, 40));
+        passwordInput = new QLineEdit(registerWindow);
+        passwordInput->setObjectName("passwordInput");
+        passwordInput->setGeometry(QRect(320, 120, 250, 40));
         label = new QLabel(registerWindow);
         label->setObjectName("label");
         label->setGeometry(QRect(180, 60, 100, 30));
@@ -86,24 +86,24 @@ public:
         groupBox->setFont(font);
         horizontalLayoutWidget = new QWidget(groupBox);
         horizontalLayoutWidget->setObjectName("horizontalLayoutWidget");
-        horizontalLayoutWidget->setGeometry(QRect(28, 29, 381, 51));
+        horizontalLayoutWidget->setGeometry(QRect(0, 30, 381, 51));
         horizontalLayout = new QHBoxLayout(horizontalLayoutWidget);
         horizontalLayout->setObjectName("horizontalLayout");
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        radioButton_2 = new QRadioButton(horizontalLayoutWidget);
-        radioButton_2->setObjectName("radioButton_2");
+        merchantRB = new QRadioButton(horizontalLayoutWidget);
+        merchantRB->setObjectName("merchantRB");
 
-        horizontalLayout->addWidget(radioButton_2);
+        horizontalLayout->addWidget(merchantRB);
 
-        radioButton = new QRadioButton(horizontalLayoutWidget);
-        radioButton->setObjectName("radioButton");
+        customerRB = new QRadioButton(horizontalLayoutWidget);
+        customerRB->setObjectName("customerRB");
 
-        horizontalLayout->addWidget(radioButton);
+        horizontalLayout->addWidget(customerRB);
 
-        radioButton_3 = new QRadioButton(horizontalLayoutWidget);
-        radioButton_3->setObjectName("radioButton_3");
+        adminRB = new QRadioButton(horizontalLayoutWidget);
+        adminRB->setObjectName("adminRB");
 
-        horizontalLayout->addWidget(radioButton_3);
+        horizontalLayout->addWidget(adminRB);
 
         gridLayoutWidget = new QWidget(registerWindow);
         gridLayoutWidget->setObjectName("gridLayoutWidget");
@@ -116,37 +116,37 @@ public:
 
         gridLayout->addWidget(label_4, 0, 0, 1, 1);
 
-        lineEdit_4 = new QLineEdit(gridLayoutWidget);
-        lineEdit_4->setObjectName("lineEdit_4");
+        yearBD = new QLineEdit(gridLayoutWidget);
+        yearBD->setObjectName("yearBD");
 
-        gridLayout->addWidget(lineEdit_4, 1, 2, 1, 1);
+        gridLayout->addWidget(yearBD, 1, 2, 1, 1);
 
         label_6 = new QLabel(gridLayoutWidget);
         label_6->setObjectName("label_6");
 
         gridLayout->addWidget(label_6, 0, 2, 1, 1);
 
-        comboBox = new QComboBox(gridLayoutWidget);
-        comboBox->addItem(QString());
-        comboBox->addItem(QString());
-        comboBox->addItem(QString());
-        comboBox->addItem(QString());
-        comboBox->addItem(QString());
-        comboBox->addItem(QString());
-        comboBox->addItem(QString());
-        comboBox->addItem(QString());
-        comboBox->addItem(QString());
-        comboBox->addItem(QString());
-        comboBox->addItem(QString());
-        comboBox->addItem(QString());
-        comboBox->setObjectName("comboBox");
+        monthBD = new QComboBox(gridLayoutWidget);
+        monthBD->addItem(QString());
+        monthBD->addItem(QString());
+        monthBD->addItem(QString());
+        monthBD->addItem(QString());
+        monthBD->addItem(QString());
+        monthBD->addItem(QString());
+        monthBD->addItem(QString());
+        monthBD->addItem(QString());
+        monthBD->addItem(QString());
+        monthBD->addItem(QString());
+        monthBD->addItem(QString());
+        monthBD->addItem(QString());
+        monthBD->setObjectName("monthBD");
 
-        gridLayout->addWidget(comboBox, 1, 0, 1, 1);
+        gridLayout->addWidget(monthBD, 1, 0, 1, 1);
 
-        lineEdit_3 = new QLineEdit(gridLayoutWidget);
-        lineEdit_3->setObjectName("lineEdit_3");
+        dayBD = new QLineEdit(gridLayoutWidget);
+        dayBD->setObjectName("dayBD");
 
-        gridLayout->addWidget(lineEdit_3, 1, 1, 1, 1);
+        gridLayout->addWidget(dayBD, 1, 1, 1, 1);
 
         label_5 = new QLabel(gridLayoutWidget);
         label_5->setObjectName("label_5");
@@ -174,9 +174,9 @@ public:
         QFont font2;
         font2.setPointSize(13);
         label_7->setFont(font2);
-        reenterPasswordInput = new QLineEdit(registerWindow);
-        reenterPasswordInput->setObjectName("reenterPasswordInput");
-        reenterPasswordInput->setGeometry(QRect(320, 180, 250, 40));
+        passwordInput2 = new QLineEdit(registerWindow);
+        passwordInput2->setObjectName("passwordInput2");
+        passwordInput2->setGeometry(QRect(320, 180, 250, 40));
         passwordDoesnotMatchError = new QLabel(registerWindow);
         passwordDoesnotMatchError->setObjectName("passwordDoesnotMatchError");
         passwordDoesnotMatchError->setGeometry(QRect(580, 180, 210, 30));
@@ -197,23 +197,23 @@ public:
         label_2->setText(QCoreApplication::translate("registerWindow", "password:", nullptr));
         label_3->setText(QCoreApplication::translate("registerWindow", "date of birth:", nullptr));
         groupBox->setTitle(QCoreApplication::translate("registerWindow", "User type:", nullptr));
-        radioButton_2->setText(QCoreApplication::translate("registerWindow", "Merchant", nullptr));
-        radioButton->setText(QCoreApplication::translate("registerWindow", "Customer", nullptr));
-        radioButton_3->setText(QCoreApplication::translate("registerWindow", "Admin", nullptr));
+        merchantRB->setText(QCoreApplication::translate("registerWindow", "Merchant", nullptr));
+        customerRB->setText(QCoreApplication::translate("registerWindow", "Customer", nullptr));
+        adminRB->setText(QCoreApplication::translate("registerWindow", "Admin", nullptr));
         label_4->setText(QCoreApplication::translate("registerWindow", "Month:", nullptr));
         label_6->setText(QCoreApplication::translate("registerWindow", "Year", nullptr));
-        comboBox->setItemText(0, QCoreApplication::translate("registerWindow", "Jan.", nullptr));
-        comboBox->setItemText(1, QCoreApplication::translate("registerWindow", "Feb.", nullptr));
-        comboBox->setItemText(2, QCoreApplication::translate("registerWindow", "Mar.", nullptr));
-        comboBox->setItemText(3, QCoreApplication::translate("registerWindow", "Apr.", nullptr));
-        comboBox->setItemText(4, QCoreApplication::translate("registerWindow", "May", nullptr));
-        comboBox->setItemText(5, QCoreApplication::translate("registerWindow", "Jun.", nullptr));
-        comboBox->setItemText(6, QCoreApplication::translate("registerWindow", "Jul.", nullptr));
-        comboBox->setItemText(7, QCoreApplication::translate("registerWindow", "Aug.", nullptr));
-        comboBox->setItemText(8, QCoreApplication::translate("registerWindow", "Sep.", nullptr));
-        comboBox->setItemText(9, QCoreApplication::translate("registerWindow", "Oct.", nullptr));
-        comboBox->setItemText(10, QCoreApplication::translate("registerWindow", "Nov.", nullptr));
-        comboBox->setItemText(11, QCoreApplication::translate("registerWindow", "Dec.", nullptr));
+        monthBD->setItemText(0, QCoreApplication::translate("registerWindow", "Jan.", nullptr));
+        monthBD->setItemText(1, QCoreApplication::translate("registerWindow", "Feb.", nullptr));
+        monthBD->setItemText(2, QCoreApplication::translate("registerWindow", "Mar.", nullptr));
+        monthBD->setItemText(3, QCoreApplication::translate("registerWindow", "Apr.", nullptr));
+        monthBD->setItemText(4, QCoreApplication::translate("registerWindow", "May", nullptr));
+        monthBD->setItemText(5, QCoreApplication::translate("registerWindow", "Jun.", nullptr));
+        monthBD->setItemText(6, QCoreApplication::translate("registerWindow", "Jul.", nullptr));
+        monthBD->setItemText(7, QCoreApplication::translate("registerWindow", "Aug.", nullptr));
+        monthBD->setItemText(8, QCoreApplication::translate("registerWindow", "Sep.", nullptr));
+        monthBD->setItemText(9, QCoreApplication::translate("registerWindow", "Oct.", nullptr));
+        monthBD->setItemText(10, QCoreApplication::translate("registerWindow", "Nov.", nullptr));
+        monthBD->setItemText(11, QCoreApplication::translate("registerWindow", "Dec.", nullptr));
 
         label_5->setText(QCoreApplication::translate("registerWindow", "Day:", nullptr));
         pushButton->setText(QCoreApplication::translate("registerWindow", "register", nullptr));

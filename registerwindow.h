@@ -17,11 +17,7 @@ public:
 
 private slots:
 
-
-
     void on_pushButton_clicked();
-
-    void on_cancelPushButton_clicked();
 
 private:
     Ui::registerWindow *ui;

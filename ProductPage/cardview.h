@@ -14,15 +14,14 @@ class CardView : public QWidget {
 
 public:
     explicit CardView(QWidget *parent = nullptr);
-    void addCard(const QString &imagePath, const QString &title, const QString &description, const QStringList &categories, float rating);
+    void addCard(const QString &imagePath, const QString &title, const QString &description, const QStringList &categories, float rating, const QString &price);
     void removeCard(QFrame *card); // Method to remove a card
     void filter(const QString &query); // Method to filter cards
 
 signals:
-    void cardClicked(const QString &imagePath, const QString &title, const QString &description);
+    void cardClicked(const QString &imagePath, const QString &title, const QString &description, const QString &price);
 
 private slots:
-    void handleCardClick();
     void onDeleteButtonClicked(); // Slot for delete button click
 
 protected:

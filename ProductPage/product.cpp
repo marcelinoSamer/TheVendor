@@ -1,4 +1,5 @@
 #include "product.h"
+#include "productratigwidget.h"
 
 Product::Product(QWidget *parent)
     : QWidget(parent),
@@ -54,11 +55,10 @@ Product::Product(QWidget *parent)
     setLayout(mainContentLayout);
 
     setWindowTitle(tr("Product"));
-    resize(800, 600); // Adjust size as needed
+    resize(800, 600);
 }
 
 Product::~Product() {
-    // Qt automatically deletes child widgets, so no need to delete them manually
 }
 
 void Product::setProductImage(const QPixmap &image) {
@@ -83,6 +83,9 @@ void Product::onAddToCartButtonClicked() {
 }
 
 void Product::onBuyButtonClicked() {
-    // Add your logic for "Buy" button here
-    qDebug("Buy button clicked");
+    hide();
+    ProductRatingWidget * p = new ProductRatingWidget();
+    p ->show();
+
+    //we should also add the function that adds to the shopping cart that w
 }
